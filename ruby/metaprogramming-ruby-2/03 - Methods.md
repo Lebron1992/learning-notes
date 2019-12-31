@@ -1,10 +1,10 @@
 # 03 Methods
 
-1. String 和 Symbol 的区别
+## 1. String 和 Symbol 的区别
 
 ![](images/844F1F50-F1D3-425B-88D5-2E097CD02766.png)
 
-2. 动态调用方法
+## 2. 动态调用方法
 
 ```ruby
 def refresh(options = {})
@@ -25,7 +25,7 @@ def refresh(options = {})
 end
 ```
 
-3. 定义动态方法
+## 3. 定义动态方法
 
 ```ruby
 class Computer
@@ -43,8 +43,8 @@ class Computer
 end
 ```
 
-4. 重写 `method_missing` 的同时，重写 `respond_to_missing?`。直接重写 `respond_to?` 是不太好的做法。
+## 4. 重写 `method_missing` 的同时，重写 `respond_to_missing?`。直接重写 `respond_to?` 是不太好的做法。
 
-5. 如果想要一个空白的类，可以继承自`BasicObject`。
+## 5. 如果想要一个空白的类，可以继承自`BasicObject`。
 
-6. The choice between **Dynamic** and **Ghost** Methods : *use Dynamic Methods if you can and Ghost Methods if you have to*. 
+## 6. The choice between **Dynamic** and **Ghost** Methods : *use Dynamic Methods if you can and Ghost Methods if you have to*. 

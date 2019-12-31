@@ -1,6 +1,6 @@
 # 04 - Blocks
 
-1. Block 的基本使用
+## 1. Block 的基本使用
 
 ```ruby
 def a_method(a, b)
@@ -15,7 +15,7 @@ def a_method
 end
 ```
 
-2. 全局变量
+## 2. 全局变量
 
 ```ruby
 def a_scope
@@ -30,7 +30,7 @@ a_scope
 another_scope # => 'some value'
 ```
 
-3. Flat Scope：可以用`Class.new` 替换 `class`，`Module.new` 替换 `module`，`define_method` 替换 `def`。
+## 3. Flat Scope：可以用`Class.new` 替换 `class`，`Module.new` 替换 `module`，`define_method` 替换 `def`。
 
 ```ruby
 # 通过这样修改，class 定义里面可以访问到外部的变量
@@ -45,7 +45,7 @@ MyClass = Class.new do
 end
 ```
 
-4. Shared Scope
+## 4. Shared Scope
 
 ```ruby
 def define_methods
@@ -66,7 +66,7 @@ inc(4)
 counter  # => 4
 ```
 
-5. `instance_eval()`
+## 5. `instance_eval()`
 
 ```ruby
 class MyClass
@@ -88,7 +88,7 @@ obj.instance_val { @v = v }
 obj.instance_val { v }   # => 2
 ```
 
-6. `instance_exec()` : 允许传入携带参数的 block
+## 6. `instance_exec()` : 允许传入携带参数的 block
 
 ```ruby
 Class C
@@ -107,7 +107,7 @@ end
 D.new.twisted_method     # => "@x: 1, @y: 2"
 ```
 
-7. Proc Objects
+## 7. Proc Objects
 
 	- Proc
 ```ruby
