@@ -1,8 +1,8 @@
-### 基础知识 (The Basics)
+## 基础知识 (The Basics)
 
-#### 常量和变量 (Constants and Variables)
+### 常量和变量 (Constants and Variables)
 
-##### 声明常量和变量 (Declaring Constants and Variables)
+#### 声明常量和变量 (Declaring Constants and Variables)
 
 使用`let`来声明常量，用`var`来声明变量。例如下面的常量和变量用来跟踪用户的输入的密码次数：
 
@@ -18,7 +18,7 @@ var x = 0.0, y = 0.0, z = 0.0
 ```
 **注意：** 如果在代码中，你存储的一个值永远不会变，请一定使用let来声明；后续需要改变的值用var声明。
 
-##### 类型注释 (Type Annotations)
+#### 类型注释 (Type Annotations)
 
 当我们定义一个常量或者变量的时候，可以给一个具体的类型。例如：
 
@@ -35,7 +35,7 @@ var red, green, blue: Double
 
 在大多数情况下，我们不必注释变量的类型，因为Swift能根据常量或者变量的值来推断类型。
 
-##### 命名常量和变量 (Naming Constants and Variables)
+#### 命名常量和变量 (Naming Constants and Variables)
 
 常量和变量名几乎可以包含任意字符，包括Unicode：
 
@@ -47,7 +47,7 @@ let 🐶🐮 = "dogcow"
 
 常量和变量的命名规则和OC一样，不能包括空格、数学符号、箭头、私有（或非法）的Unicode代码、线条和方块图字符；也不能以数字开头，但数字可以出现在后面的其他位置。
 
-##### 打印常量和变量 (Printing Constants and Variables)
+#### 打印常量和变量 (Printing Constants and Variables)
 
 直接使用`print(_:separator:terminator:)`方法来打印：
 
@@ -65,22 +65,22 @@ print("\(welcomeMessage), Lebron James!")
 // Prints "Hello, Lebron James!"
 ```
 
-#### 注释 (Comments)
+### 注释 (Comments)
 
-##### 单行注释
+#### 单行注释
 
 ```swift
 // This is a comment.
 ```
 
-##### 多行注释
+#### 多行注释
 
 ```swift
 /* This is also a comment
  but is written over multiple lines. */
 ```
 
-##### 内嵌多行注释
+#### 内嵌多行注释
 
 ```swift
 /* This is the start of the first multiline comment.
@@ -88,15 +88,15 @@ print("\(welcomeMessage), Lebron James!")
  This is the end of the first multiline comment. */
 ```
 
-#### 分号 (Semicolons)
+### 分号 (Semicolons)
 
 不同于其他语言，Swift在每行代码后面不需要加分号。
 
-#### 整数 (Integers)
+### 整数 (Integers)
 
 Swift提供了8、16、32和64位的整数。这些整数的命名和C语言类似，例如8位无符号整数是`UInt8`，32位有符号整数是`Int32`。向其他Swift类型一样，这些整数类型的名称都是大写字母开头的。
 
-##### 整数边界 (Integer Bounds)
+#### 整数边界 (Integer Bounds)
 
 我们可以使用`min`和`max`属性来访问各个整数类型的最小值和最大值。
 
@@ -105,7 +105,7 @@ let minValue = UInt8.min  // UInt8的最小值是0
 let maxValue = UInt8.max  // UInt8的最大值是255
 ```
 
-##### Int
+#### Int
 
 在多数情况下，我们不必在代码中指定整数的取值范围。Swift提供了另外一个整数类型`Int`，它的取值范围取决于当前运行平台：
 
@@ -114,14 +114,14 @@ let maxValue = UInt8.max  // UInt8的最大值是255
 
 **注意：**当你真的特别需要无符号的整数类型时才使用`Unit`，否则一般情况下是推荐使用`Int`，即使你知道你要存储的值是非负数。一致使用`Int`能增强代码的互动性，可以避免不同数字类型的转换。
 
-##### UInt
+#### UInt
 
 Swift也提供了不带符号的整型，`UInt`，他的取值范围也取决于当前运行平台：
 
 - 在32-bit的平台上，`UInt`相当于`UInt32`
 - 在64-bit的平台上，`UInt`相当于`UInt64`
 
-#### 浮点型 (Floating-Point Numbers)
+### 浮点型 (Floating-Point Numbers)
 
 浮点型的变量存储的值范围比整数型更广。Swift提供了两种有符号的浮点型类型：
 
@@ -130,7 +130,7 @@ Swift也提供了不带符号的整型，`UInt`，他的取值范围也取决于
 
 **注意：**`Double`的精度可以达到15为小数，而Float只能达到6位小数。选用哪一种类型取决于你的实际情况。一般情况下，我们直接使用`Double`。
 
-#### 类型安全与类型推断 (Type Safety and Type Inference)
+### 类型安全与类型推断 (Type Safety and Type Inference)
 
 细心的同学可以发现，在上面定义的一些变量，我们无需在最前面写变量的类型，而是直接用`let`或者`var`。因为Swift可以直接根据你赋给那个变量的值来推断变量的类型。例如：
 
@@ -147,7 +147,7 @@ let pi = 3.14159 // pi被推断为Double类型
 let anotherPi = 3 + 0.14159 // anotherPi是Double类型
 ```
 
-#### 数值类型的字面值 (Numeric Literals)
+### 数值类型的字面值 (Numeric Literals)
 
 整数类型的字面值应该这样写：
 
@@ -193,9 +193,9 @@ let oneMillion = 1_000_000
 let justOverOneMillion = 1_000_000.000_000_1
 ```
 
-#### 数字类型转换 (Numeric Type Conversion)
+### 数字类型转换 (Numeric Type Conversion)
 
-##### 整型转换 (Integer Conversion)
+#### 整型转换 (Integer Conversion)
 
 不同整数类型的取值范围是不同的。例如`Int8`只能存储-128~127的数值；而`UInt8`只能存储0~225。如果一个数超过了这个整数类型的范围，将会报错：
 
@@ -217,7 +217,7 @@ let twoThousandAndOne = twoThousand + UInt16(one)
 
 因为`one`是`UInt8`类型，而`twoThousand`是`UInt16`类型，所以他们不能直接相加，需要把`one`转换成`UInt16`类型，然后才可以相加。
 
-##### 整型和浮点类型转换 (Integer and Floating-Point Conversion)
+#### 整型和浮点类型转换 (Integer and Floating-Point Conversion)
 
 整型和浮点型之间的转换必须显示转换：
 
@@ -237,7 +237,7 @@ let integerPi = Int(pi)
 
 当浮点型转为整型时，浮点型的小数部分总是被省略掉，只取整数部分。也就是说4.75会被转为4，-3.9被转为-3。
 
-#### 类型别名 (Type Aliases)
+### 类型别名 (Type Aliases)
 
 使用`typealias`关键字来定义一个别名。当我们想用一个更清晰更适合的类型来表达一个变量的时候，使用别名是非常有用的。例如我们从外部资源操作一个特定大小的数据时：
 
@@ -257,7 +257,7 @@ var maxAmplitudeFound = AudioSample.min
 其实别名可以这么理解，就是为代码的可读性更高，更贴合项目实际，例如我们经常见的`TimeInterval`，实际上是一个`Double`类型。
 
 
-#### 布尔值 (Booleans)
+### 布尔值 (Booleans)
 
 Swift提供了两个布尔类型的常量：`true`和`false`：
 
@@ -289,7 +289,7 @@ if i == 1 {
 `i == 1` 的结果是`Bool`类型，所以第二个例子是正确的。
 
 
-#### 多元组 (Tuples)
+### 多元组 (Tuples)
 
 一个多元组包含了多个元素，多元组里面的元素可以是任何类型，并且可以是不一样的类型。例如：
 
@@ -343,7 +343,7 @@ print("The status message is \(http200Status.description)")
 多元组作为方法的返回值是特别有用的，我们在方法里可以返回更多的信息。
 
 
-#### 可选类型 (Optionals)
+### 可选类型 (Optionals)
 
 可选类型是Swift新增的一个类型，在OC或者C中是没有的。当一个值有可能为空时，就是用可选类型。一个可选类型代表着两种可能：1）有一个特定的值，并且可以把这个可选值解包得到他真正的值；2）没有值，也就是`nil`。
 
@@ -357,7 +357,7 @@ convertedNumber被推断为Int?类型，或者说是 optional Int
 
 因为`Int(possibleNumber)`在转换的时候，假如`possibleNumber`的字面值不是数字，那就会转换不成功，最后返回`nil`给`convertedNumber`。所以`convertedNumber`的值有两种可能，要么就转成功，返回具体值，要么就转换不成功，返回`nil`。所以convertedNumber是`Int?`类型。这个`?`的意思是变量的值可能会是`nil`。
 
-##### nil
+#### nil
 
 我们可以把`nil`赋值给一个可选类型：
 
@@ -379,7 +379,7 @@ var surveyAnswer: Stirng?
 
 **注意：**Swift的`nil`和OC中的`nil`是不同的。在OC中，`nil`是一个指针，指向一个不存在的对象；而在Swift中，`nil`不是指针，只是表示一个特定类型的值是空的。任何可选类型都可以设置为`nil`，不仅仅是对象类型。
 
-##### If语句和强制解包 (If Statements and Forced Unwrapping)
+#### If语句和强制解包 (If Statements and Forced Unwrapping)
 
 使用`==`或者`!=`来判断一个可选类型的变量是否等于`nil`：
 
@@ -400,7 +400,7 @@ if convertedNumber != nil {
 
 **注意：** 在使用`!`解包时，一定要保证可选类型的变量有值，不能为`nil`，否则在运行的时候会报错。
 
-##### 可选绑定 (Optional Binding)
+#### 可选绑定 (Optional Binding)
 
 使用可选绑定来确认一个可选类型是否有值，如果有值，那么就赋值给一个局部的变量或者常量。可选绑定可以配合`if`和`while`语句来检查一个可选类型变量是否有值：
 
@@ -450,7 +450,7 @@ if let firstNumber = Int("4") {
 
 第一种写法更为简短。
 
-##### 隐式解包可选类型 (Implicitly Unwrapped Optionals)
+#### 隐式解包可选类型 (Implicitly Unwrapped Optionals)
 
 有时候，我们能确定一个可选类型被第一次赋值后，总会有值。那我们就可以把这种可选类型声明为隐式解包可选类型。在要设置为可选的类型名称后面加上`!`，例如`String!`。
 
@@ -486,7 +486,7 @@ if let definiteString = assumedString {
 
 **注意：** 当一个变量有可能为`nil`时，千万不要使用隐式解包可选绑定。
 
-#### 错误处理 (Error Handling)
+### 错误处理 (Error Handling)
 
 当一个方法遇到错误条件时，会抛出一个错误。方法的调用者就能抓取这个错误，然后进行处理：
 
@@ -527,9 +527,9 @@ do {
 
 在这个例子中，如果没有干净的盘子可用或者缺少某种做三明治的原料时，`makeASandwich()`将会抛出异常。如果没有异常，就会执行`eatASandwich()`。如果抓取的错误匹配`SandwichError.outOfCleanDishes`，就会执行`washDishes()`，如果抓取的错误匹配`SandwichError.missingIngredients`，就会执行` buyGroceries(_:) `。
 
-#### 断言 (Assertions)
+### 断言 (Assertions)
 
-##### 调试断言 (Debugging with Assertions)
+#### 调试断言 (Debugging with Assertions)
 
 在某些情况下，我们需要让某些变量满足特定的条件之后，才让代码继续执行。如果不满足，代码会运行错误。我们可以在代码中使用断言来阻止代码执行，然后调试错误的原因。
 
@@ -542,7 +542,7 @@ assert(age >= 0, "人的年龄不能小于0")
 
 **注意：** 在当优化优化编译时，断言会被禁用，例如在Xcode中使用一个程序的默认发布配置建立新版本的时候。
 
-##### 何时使用断言 (When to Use Assertions)
+#### 何时使用断言 (When to Use Assertions)
 
 当一个判断条件有可能为false时，可以使用断言。下面这些情况可以使用断言：
 
