@@ -1,8 +1,8 @@
-### 【Swift 3.1】22 - 协议 (Protocols)
+# 22 - 协议 (Protocols)
 
 协议为方法、属性和其他适合特定任务或功能定义了一个蓝图。类、结构和枚举都可以遵循协议来对一些特殊要求提供真实的实现。
 
-#### 协议语法 (Protocol Syntax)
+## 协议语法 (Protocol Syntax)
 
 语法如下：
 
@@ -28,7 +28,7 @@ class SomeClass: SomeSuperclass, FirstProtocol, AnotherProtocol {
 }
 ```
 
-#### 属性要求 (Property Requirements)
+## 属性要求 (Property Requirements)
 
 协议可以要求遵循它的类型提供有特定名字和类型的实例属性或者类属性。协议没有要求这些属性一定得是存储属性或者计算属性，它指定了属性的名字和类型，还指定了属性是只读或者是可读可写。
 
@@ -87,7 +87,7 @@ var ncc1701 = Starship(name: "Enterprise", prefix: "USS")
 // ncc1701.fullName is "USS Enterprise"
 ```
 
-#### 方法要求 (Method Requirements)
+## 方法要求 (Method Requirements)
 
 协议可以定义一些特定类型的实例方法和类型方法来让遵循它的类型去实现。定义协议方法和定义正常的方法一样，不过协议方法没有方法体。允许使用可变参数，但是参数不能有默认值。
 
@@ -127,11 +127,11 @@ print("And another one: \(generator.random())")
 // Prints "And another one: 0.729023776863283"
 ```
 
-#### Mutating 方法要求 (Mutating Method Requirements)
+## Mutating 方法要求 (Mutating Method Requirements)
 
 有时候我们需要在方法中改变实例。在方法前面加上`mutating`来表示这个方法可以修改实例或者实例的属性。
 
-**注意：**如果把协议的实例方法标记为`mutating`，在遵循这个协议的类中实现`mutating`方法无需加上`mutating`关键字。`mutating`只适用于结构和枚举类型。
+**注意：** 如果把协议的实例方法标记为`mutating`，在遵循这个协议的类中实现`mutating`方法无需加上`mutating`关键字。`mutating`只适用于结构和枚举类型。
 
 下面是一个`Togglable`协议：
 
@@ -160,7 +160,7 @@ lightSwitch.toggle()
 // lightSwitch is now equal to .on
 ```
 
-#### 初始化器要求 (Initializer Requirements)
+## 初始化器要求 (Initializer Requirements)
 
 协议可以指定遵循这个协议的类型初始化器：
 
@@ -170,7 +170,7 @@ protocol SomeProtocol {
 }
 ```
 
-##### Class实现协议的初始化器要求 (Class Implementation of Protocol Initializer Requirements)
+### Class实现协议的初始化器要求 (Class Implementation of Protocol Initializer Requirements)
 
 我们可以实现协议的初始化器并作为类的指定初始化器或者便利初始化器，不管是哪一种初始化器，都需要用`require`标记：
 
@@ -184,7 +184,7 @@ class SomeClass: SomeProtocol {
 
 `required`关键字保证了遵循这个协议的类的所有子类有一个对协议指定的初始化器有明确的实现，这样子类也遵循这个协议。
 
-**注意：**如果类对协议指定的初始化器的实现用`final`标记，那就无需再用`required`标记，因为`final`标记的初始化器是不能被继承的。
+**注意：** 如果类对协议指定的初始化器的实现用`final`标记，那就无需再用`required`标记，因为`final`标记的初始化器是不能被继承的。
 
 如果一个子类重写了父类的指定初始化器，并重写后的初始化器刚好匹配协议指定的初始化器，那么这个初始化器需要用`required`和`override`标记。
 
@@ -207,11 +207,11 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 }
 ```
 
-##### 可能失败的初始化器要求 (Failable Initializer Requirements)
+### 可能失败的初始化器要求 (Failable Initializer Requirements)
 
 协议可以定义可能失败的初始化器要求。在遵循这个协议的类型中，可以用可能失败的初始化器或者正常的初始化器来实现协议的可能失败的初始化器；可以用隐式强制解包可能失败的初始化器或者正常的初始化器来实现协议的正常的初始化器。
 
-#### 协议作为类型 (Protocols as Types)
+## 协议作为类型 (Protocols as Types)
 
 协议实际上是不实现任何功能的。尽管如此，我们创建的任何协议，都可以是一个完全成熟的类型。
 
@@ -251,7 +251,7 @@ for _ in 1...5 {
 // Random dice roll is 4
 ```
 
-#### 代理 (Delegation)
+## 代理 (Delegation)
 
 代理是一种设计模式，使用代理可以把一个类或结构把它们负责的任务转移给另外一个类型的实例去做。代理模式是通过定义协议实现的，这个协议封装了代理需要做的工作。代理模式可以用来响应一些特定的行为，或者从外部资源获取数据，但是不需要知道外部资源的基本类型。
 
@@ -349,11 +349,11 @@ game.play()
 // The game lasted for 4 turns
 ```
 
-#### 使用扩展遵循协议 (Adding Protocol Conformance with an Extension)
+## 使用扩展遵循协议 (Adding Protocol Conformance with an Extension)
 
 可以使用扩展来遵循一个协议，不必访问已存在类型的源代码。
 
-**注意：**当在一个类型的扩展遵循了协议，这个类型会自动遵循这个协议。
+**注意：** 当在一个类型的扩展遵循了协议，这个类型会自动遵循这个协议。
 
 例如下面这个协议`TextRepresentable`：
 
@@ -385,7 +385,7 @@ print(game.textualDescription)
 // Prints "A game of Snakes and Ladders with 25 squares"
 ```
 
-##### 使用扩展声明遵循协议 (Declaring Protocol Adoption with an Extension)
+### 使用扩展声明遵循协议 (Declaring Protocol Adoption with an Extension)
 
 如果一个类型已经实现了协议的所有要求，但是没有声明它已经遵循了这个协议，可以使用空扩展来实现：
 
@@ -400,7 +400,7 @@ struct Hamster {
 extension Hamster: TextRepresentable {}
 ```
 
-#### 协议类型集合 (Collections of Protocol Types)
+## 协议类型集合 (Collections of Protocol Types)
 
 协议可以作为集合元素的类型，例如：
 
@@ -421,7 +421,7 @@ for thing in things {
 
 注意：`thing`常量是`TextRepresentable`类型，不是`Dice`、`DiceGame`或者`Hamster`，即使实际上是其中的一种类型。尽管如此，因为`thing`是`TextRepresentable`类型，并且它有`textualDescription`属性，所以我们可以直接访问`thing.textualDescription`。
 
-#### 协议继承 (Protocol Inheritance)
+## 协议继承 (Protocol Inheritance)
 
 一个协议可以继承一个或多个协议，语法如下：
 
@@ -470,7 +470,7 @@ print(game.prettyTextualDescription)
 // ○ ○ ▲ ○ ○ ▲ ○ ○ ▲ ▲ ○ ○ ○ ▼ ○ ○ ○ ○ ▼ ○ ○ ▼ ○ ▼ ○
 ```
 
-#### 只适用于Class类型的协议 (Class-Only Protocols)
+## 只适用于Class类型的协议 (Class-Only Protocols)
 
 我们可以使用`class`关键字来限制一个协议能被class类型遵循，`class`必须放在最前面：
 
@@ -480,7 +480,7 @@ protocol SomeOnlyProtocol: class, SomeInheritantedProtocol {
 }
 ```
 
-#### 协议组合 (Protocol Composition)
+## 协议组合 (Protocol Composition)
 
 要求一个类型一次性遵循多个协议是非常有用的。使用`SomeProtocol & AnotherProtocol`来组合协议，我们想要组合多少个就组合多少个，只要使用`&`隔开即可。
 
@@ -511,9 +511,9 @@ wishHappyBirthday(to: birthdayPerson)
 
 `celebrator`的参数类型是`Named & Aged`，意味着这个参数要同时遵循`Named`和`Aged`协议。不管具体类型是什么，只要遵循这两个协议即可。
 
-**注意：**协议组合并不是定义了一个新的、永久的协议类型。他们只是一个结合了多个协议要求的暂时本地协议。
+**注意：** 协议组合并不是定义了一个新的、永久的协议类型。他们只是一个结合了多个协议要求的暂时本地协议。
 
-#### 检查协议一致性 (Checking for Protocol Conformance)
+## 检查协议一致性 (Checking for Protocol Conformance)
 
 使用`is`和`as`来检查协议的一致性，并且转型到一个具体的协议：
 
@@ -575,7 +575,7 @@ for object in objects {
 // Something that doesn't have an area
 ```
 
-#### 可选协议要求 (Optional Protocol Requirements)
+## 可选协议要求 (Optional Protocol Requirements)
 
 我们可以定义可选协议要求，这些可选的要求不一定要有对应的实现。使用`optional`关键字来定义可选的协议要求。协议和协议要求都必须使用`@objc`属性标记。注意：`@objc`协议只能被继承于OC的类或者其他`@objc`类采用。不能被结构和枚举采用。
 
@@ -659,7 +659,7 @@ for _ in 1...5 {
 // 0
 ```
 
-#### 协议扩展 (Protocol Extensions)
+## 协议扩展 (Protocol Extensions)
 
 协议可以被扩展以提供属性和方法实现，这可以允许我们定义协议的行为。
 
@@ -683,11 +683,11 @@ print("And here's a random Boolean: \(generator.randomBool())")
 // Prints "And here's a random Boolean: true"
 ```
 
-##### 提供默认实现 (Providing Default Implementations)
+### 提供默认实现 (Providing Default Implementations)
 
 我们可以使用协议扩展来提供默认的实现给原有协议定义的方法和属性。如果遵循了这个协议的类型提供了自己的实现，那么将会使用这个类型自己的实现，而不是使用扩展的实现。
 
-**注意：**扩展提供了默认实现的协议要求不同于可选协议要求，虽然遵循这个协议的类型都不需要提供自己的实现，但是有默认实现的要求可以直接被调用，而不用使用可选绑定。
+**注意：** 扩展提供了默认实现的协议要求不同于可选协议要求，虽然遵循这个协议的类型都不需要提供自己的实现，但是有默认实现的要求可以直接被调用，而不用使用可选绑定。
 
 例如，继承于`TextRepresentable`的`PrettyTextRepresentable`协议，可以通扩展来提供`prettyTextualDescription`属性的默认实现：
 
@@ -699,7 +699,7 @@ extension PrettyTextRepresentable  {
 }
 ```
 
-##### 向协议扩展添加约束 (Adding Constraint to Protocol Extensions)
+### 向协议扩展添加约束 (Adding Constraint to Protocol Extensions)
 
 当定义一个协议的扩展时，可以指定一些约束来要求遵循这个协议的类型必须满足这些约束条件才能访问扩展里定义的属性和方法。使用`where`语句来添加约束。
 
@@ -730,4 +730,4 @@ print(hamsters.textualDescription)
 // Prints "[A hamster named Murray, A hamster named Morgan, A hamster named Maurice]"
 ```
 
-**注意**：如果有多个有限制的协议扩展为同一个方法或属性提供了实现，并且有一个类型遵循了这些协议，Swift将会使用对应最专用限制的实现。
+**注意：** 如果有多个有限制的协议扩展为同一个方法或属性提供了实现，并且有一个类型遵循了这些协议，Swift将会使用对应最专用限制的实现。

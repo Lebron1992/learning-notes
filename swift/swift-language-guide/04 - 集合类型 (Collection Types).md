@@ -1,18 +1,18 @@
-### 集合类型 (Collection Types)
+# 集合类型 (Collection Types)
 
 Swift提供了三种集合类型：数组(`Array`)、集合(`Set`)、字典(`Dictionary`)。`Array`是有顺序的值的集合；`Set`是多个唯一的值的无序集合；`Dictionary`是无序的键值对集合。
 
-**注意：**Swift的`Array`、`Set`和`Dictionary`都属于泛型集合。
+**注意：** Swift的`Array`、`Set`和`Dictionary`都属于泛型集合。
 
-#### 数组 (Array)
+## 数组 (Array)
 
 数组只能存储相同类型的值。相同的值可以出现在数组的不同位置中。
 
-##### 数组类型的速记语法 (Array Type Shorthand Syntax)
+### 数组类型的速记语法 (Array Type Shorthand Syntax)
 
 一个数组的类型是这样写的：`Array<Element>`，`Element`是数组元素值的类型，也可以简写成：`[Element]`。
 
-##### 创建一个空数组 (Creating an Empty Array)
+### 创建一个空数组 (Creating an Empty Array)
 
 ```swift
 var someInt = [Int]()
@@ -31,14 +31,14 @@ someInt = []
 // someInts is now an empty array, but is still of type [Int]
 ```
 
-##### 创建一个有默认值的数组 (Creating an Array with a Default Value)
+### 创建一个有默认值的数组 (Creating an Array with a Default Value)
 
 ```swift
 var threeDoubles = Array(repeating: 0.0, count: 3)
 // threeDoubles is of type [Double], and equals [0.0, 0.0, 0.0]
 ```
 
-##### 通过合并两个数组来创建数组 (Creating an Array by Adding Two Arrays Together)
+### 通过合并两个数组来创建数组 (Creating an Array by Adding Two Arrays Together)
 
 ```swift
 let anotherThreeDoubles = Array(repeating: 2.5, count: 3)
@@ -48,14 +48,14 @@ var sixDoubles = threeDoubles + anotherThreeDoubles
 // sixDoubles is inferred as [Double], and equals [0.0, 0.0, 0.0, 2.5, 2.5, 2.5]
 ```
 
-##### 用字面值创建数组 (Creating an Array with an Array Literal)
+### 用字面值创建数组 (Creating an Array with an Array Literal)
 
 ```swift
 var shoppingLis = ["Eggs", "Milk"]
 // shoppingList has been initialized with two initial items
 ```
 
-##### 访问和修改数组 (Accessing and Modifying an Array)
+### 访问和修改数组 (Accessing and Modifying an Array)
 
 获取数组的个数：
 
@@ -137,7 +137,7 @@ let apples = shoppingList.removeLast()
 // the apples constant is now equal to the removed "Apples" string
 ```
 
-##### 遍历整个数组 (Iterating Over an Array)
+### 遍历整个数组 (Iterating Over an Array)
 
 使用`for-in`遍历：
 
@@ -165,11 +165,11 @@ for (index, value) in shoppingList.enumerated() {
 // Item 5: Bananas
 ```
 
-#### 集合 (Sets)
+## 集合 (Sets)
 
 集合中无顺序地存储了同一类型的值，并且里面的每一个值都是唯一的。在元素的顺序不重要或者要求每一个元素都需要唯一的时候，可以使用集合，而不用数组。
 
-##### 集合类型的哈希值 (Hash Values for Set Types)
+### 集合类型的哈希值 (Hash Values for Set Types)
 
 集合里面的元素类型必须*hashable*，也就是说，这个元素类型必须提供一个方法来计算他自己的哈希值。一个哈希值是一个用来判断两个对象是否相等的`Int`类型的整数。例如，如果`a == b`，那么`a.hashValue == b.hashValue`。
 
@@ -183,11 +183,11 @@ for (index, value) in shoppingList.enumerated() {
 - `a == b`，说明`b == a` (对称性)
 - `a == b && b == c`，说明 `a == c` (传递性)
 
-##### 集合类型语法 (Set Type Syntax)
+### 集合类型语法 (Set Type Syntax)
 
 使用`Set<Element>`来设置集合类型，`Element`是集合存储的元素类型。
 
-##### 创建和初始化一个空集合 (Creating and Initializing an Empty Set)
+### 创建和初始化一个空集合 (Creating and Initializing an Empty Set)
 
 ```swift
 var letters = Set<Character>()
@@ -206,7 +206,7 @@ letters = []
 // letters is now an empty set, but is still of type Set<Character>
 ```
 
-##### 使用数组字面值来创建一个集合 (Creating a Set with an Array Literal)
+### 使用数组字面值来创建一个集合 (Creating a Set with an Array Literal)
 
 ```swift
 var favoriteGenres: Set<String> = ["Rock", "Classical", "Hip hop"]
@@ -221,7 +221,7 @@ var favoriteGenres: Set = ["Rock", "Classical", "Hip hop"]
 
 因为数组的全部字面值都是同一类型，所以Swfit能推断出`Set<String>`是`favoriteGenres`的正确类型。
 
-##### 访问和修改集合 (Accessing and Modifying a Set)
+### 访问和修改集合 (Accessing and Modifying a Set)
 
 使用`count`属性获取集合元素个数：
 
@@ -270,7 +270,7 @@ if favoriteGenres.contains("Funk") {
 // Prints "It's too funky in here."
 ```
 
-##### 遍历整个集合 (Iterating Over a Set)
+### 遍历整个集合 (Iterating Over a Set)
 
 ```swift
 for genre in favoriteGenres {
@@ -292,9 +292,9 @@ for genre in favoriteGenres.sorted() {
 // Jazz
 ```
 
-#### 执行集合操作 (Performing Set Operations)
+## 执行集合操作 (Performing Set Operations)
 
-##### 基本集合操作 (Fundamental Set Operations)
+### 基本集合操作 (Fundamental Set Operations)
 
 下图是集合`a`和`b`执行了不同的方法之后，得出的结果图：
 
@@ -321,7 +321,7 @@ oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
 // [1, 2, 9]
 ```
 
-##### 集合关系和相等性 (Set Membership and Equality)
+### 集合关系和相等性 (Set Membership and Equality)
 
 下图演示了三个集合：`a`、`b`和`c`，重叠区域代表有相同的元素。集合`a`是集合`b`的父集合，因为`a`包含了`b`的所有元素；相反，`b`是`a`的子集合。集合`b`和集合`c`互不相交，因为他们没有相同的元素。
 
@@ -347,19 +347,19 @@ farmAnimals.isDisjoint(with: cityAnimals)
 // true
 ```
 
-#### Dictionaries (字典)
+## Dictionaries (字典)
 
 字典是一个无序集合中相同类型的键和相同类型的值的关联。每一个值关联着一个唯一的键。
 
-##### 字典类型速记语法 (Dictionary Type Shorthand Syntax)
+### 字典类型速记语法 (Dictionary Type Shorthand Syntax)
 
 使用`Dictionary<Key, Value>`来指定字典的类型。
 
-**注意：**字典的`Key`类型必须遵循`Hashable`协议，就像集合的值一样。
+**注意：** 字典的`Key`类型必须遵循`Hashable`协议，就像集合的值一样。
 
 还可以是用简短的形式`[Key: Value]`来指定字典的类型.
 
-##### 创建一个空字典 (Creating an Empty Dictionary)
+### 创建一个空字典 (Creating an Empty Dictionary)
 
 ```swift
 var namesOfIntegers = [Int: String]()
@@ -375,13 +375,13 @@ namesOfIntegers = [:]
 // namesOfIntegers is once again an empty dictionary of type [Int: String]
 ```
 
-##### 利用字典字面值来创建字典 (Creating a Dictionary with a Dictionary Literal)
+### 利用字典字面值来创建字典 (Creating a Dictionary with a Dictionary Literal)
 
 ```swift
 var airports = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
 ```
 
-##### 访问和修改字典 (Accessing and Modifying Dictionary)
+### 访问和修改字典 (Accessing and Modifying Dictionary)
 
 获取字典键值对的个数：
 
@@ -448,7 +448,7 @@ if let removedValue = airports.removeValue(forKey: "DUB") {
 // Prints "The removed airport's name is Dublin Airport."
 ```
 
-##### 遍历整个字典 (Iterating Over a Dictionary)
+### 遍历整个字典 (Iterating Over a Dictionary)
 
 ```swift
 for (airportCode, airportName) in airports {

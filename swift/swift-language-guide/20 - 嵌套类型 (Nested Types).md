@@ -1,8 +1,8 @@
-### 【Swift 3.1】20 - 嵌套类型 (Nested Types)
+# 20 - 嵌套类型 (Nested Types)
 
 枚举通常是用来支持类或者结构的某些功能。同样地，在一些复杂类型里面，可以定义一些工具类和结构。Swift可以让我们定义嵌套类型。
 
-#### 嵌套类型实践 (Nested Typeds in Action)
+## 嵌套类型实践 (Nested Typeds in Action)
 
 ```swift
 struct BlackjackCard {
@@ -57,7 +57,7 @@ print("theAceOfSpades: \(theAceOfSpades.description)")
 ```
 初始化器中可以直接使用case的名字`.ace`和`.spades`来引用枚举的case。
 
-#### 引用嵌套类型 (Referring to Nested Types)
+## 引用嵌套类型 (Referring to Nested Types)
 
 ```swift
 let heartsSymbol = BlackjackCard.Suit.hearts.rawValue

@@ -1,4 +1,4 @@
-### 闭包 (Closures)
+# 闭包 (Closures)
 
 闭包是具有一定功能的代码块。Swift的闭包类似于C和OC中的block和其他编程语言的匿名函数。
 
@@ -15,9 +15,9 @@ Swift的闭包语句经过了一系列的优化变得非常简单、整洁和清
 - 简略的参数名
 - 后置闭包语法
 
-#### 闭包表达式 (Closure Expressions)
+## 闭包表达式 (Closure Expressions)
 
-##### 排序方法 (Sorted Methods)
+### 排序方法 (Sorted Methods)
 
 Swift标准库中有一个方法`sorted(by:)`，可以用来对一个数组的值排序。当排序执行完成时，返回一个排好序的数组，并且不会修改原数组。`sorted(by:)`方法接收一个具有两个与数组元素类型相同的参数、并返回一个布尔值的闭包，闭包的返回值说明了是正序还是倒序。
 
@@ -35,7 +35,7 @@ var reverseNaems = names.sorted(by: backward)
 
 然而，上面这种写法不够简洁，我们可以使用闭包表达式语法来写。
 
-##### 闭包表达式语法 (Closure Expression Syntax)
+### 闭包表达式语法 (Closure Expression Syntax)
 
 闭包表达式语法的通用形式如下：
 
@@ -55,7 +55,7 @@ reverseNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
 })
 ```
 
-##### 根据上下文推断类型 (Inferring Type From Context)
+### 根据上下文推断类型 (Inferring Type From Context)
 
 因为分类闭包当做参数被传入一个方法，Swift能推断参数的类型和返回值的类型。因为参数和返回值的类型都能被推断出来，所以参数的类型和返回值类型都可以忽略，写成：
 
@@ -63,7 +63,7 @@ reverseNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
 reversNames = names.sorted(by: { s1, s2 in return s1 > s2 } )
 ```
 
-##### 隐藏Return的单个表达式闭包 (Implicit Returns from Single-Expression Closures)
+### 隐藏Return的单个表达式闭包 (Implicit Returns from Single-Expression Closures)
 
 单个表达式闭包可以通过删除`return`关键字来隐式地返回单个表达式的结果：
 
@@ -71,7 +71,7 @@ reversNames = names.sorted(by: { s1, s2 in return s1 > s2 } )
 reveresNames = names.sorted(by: s1, s2 in s1 > s2)
 ```
 
-##### 简略参数名 (Shorthand Argument Names)
+### 简略参数名 (Shorthand Argument Names)
 
 Swift可以自动提供简略参数名给单行闭包，这些简略参数名是被用来引用于闭包的参数，例如`$0`、`$1`和`$2`等等。
 
@@ -83,7 +83,7 @@ reverseNames = names.sorted(by: { $0 > $1 })
 
 `$0`和`$1`是闭包的第一和第二个参数。
 
-##### 运算符方法 (Operator Methods)
+### 运算符方法 (Operator Methods)
 
 其实上面的闭包还可以用更简短的方式来实现。Swift的`String`类型把`>`定义为一个具有两个`String`类型并返回布尔值得方法。这刚好符合`sorted(by:)`方法需要的闭包参数。所以上面的例子可以简写成：
 
@@ -91,7 +91,7 @@ reverseNames = names.sorted(by: { $0 > $1 })
 reverseNames = names.sorted(by: >)
 ```
 
-#### 后置闭包 (Trailing Closures)
+## 后置闭包 (Trailing Closures)
 
 如果我们需要传入一个很长的闭包作为参数，并且这个参数是最后一个参数，后置闭包是非常有用的。当使用后置闭包语法时，不需要写参数的标签：
 
@@ -150,7 +150,7 @@ let strings = numbers.map { (number) -> String in
 
 `number`变量使用闭包的`number`参数参数来初始化，以保证闭包后面的代码中能修改`number`的值，但是闭包参数`number`还是属于常量。
 
-#### 捕获值 (Capturing Values)
+## 捕获值 (Capturing Values)
 
 闭包可以从包含这个闭包的方法中捕获这个方法内部定义的常量或变量，然后闭包可以修改这些常量或者变量，即使这些常量和变量不再存在。
 
@@ -169,7 +169,7 @@ func makeIncrementer(forIncrement amount: Int) -> () -> Int {
 
 `incrementer()`方法没有参数，从包含它的方法中引用`runningTotal`和`amount`，这种引用是通过捕获对`runningTotal`和`amount`的指针实现的。通过捕获指针保证了`runningTotal`和`amount`在`makeIncrementer`执行完之后不会消失，并且在下一次调用`makeIncrementer`时还可以使用。
 
-**注意：**因为优化，如果一个值在闭包中没有被修改，Swift会捕获和存储这个值的副本。Swift还会处理内存管理问题，当这些变量不再使用时，Swift会把他们销毁。
+**注意：** 因为优化，如果一个值在闭包中没有被修改，Swift会捕获和存储这个值的副本。Swift还会处理内存管理问题，当这些变量不再使用时，Swift会把他们销毁。
 
 下面是使用`makeIncrementer`的一个例子：
 
@@ -194,9 +194,9 @@ incrementBySeven()
 
 然后再调用之前的`incrementByTen`，`runningTotal`的值会继续往上增加，并且不会对`incrementBySeven`引用的`runningTotal`造成影响。
 
-**注意：**如果把一个闭包赋值给一个类对实例的属性，这个闭包又通过引用这个类对象的实例或者成员来捕获值，这将会造成在闭包和类实例之间的循环引用。
+**注意：** 如果把一个闭包赋值给一个类对实例的属性，这个闭包又通过引用这个类对象的实例或者成员来捕获值，这将会造成在闭包和类实例之间的循环引用。
 
-#### 闭包是引用类型 (Closures Are Reference Types)
+## 闭包是引用类型 (Closures Are Reference Types)
 
 在上面的例子中，`incrementBySeve`和`incrementByTen`都是常量，但是这两个常量引用的闭包还可以让`runningTotal`继续增加。这是因为方法和闭包都是引用类型。
 
@@ -208,7 +208,7 @@ alsoIncrementByTen
 // returns a value of 50
 ```
 
-#### 逃逸闭包 (Escaping Closures)
+## 逃逸闭包 (Escaping Closures)
 
 当一个闭包作为参数传给一个方法时，但是在方法返回之后才调用，那么这个闭包被称为逃逸闭包。在声明方法时，在方法参数类型之前使用`@escaping`来说明这个闭包允许“逃脱”。
 
@@ -248,7 +248,7 @@ print(instance.x)
 // Prints "100"
 ```
 
-#### 自动闭包 (Autoclosures)
+## 自动闭包 (Autoclosures)
 
 一个闭包自动创建并被包装成一个表达式，然后作为参数传入方法，这个闭包就被称为自动闭包。
 
@@ -292,7 +292,7 @@ serve(customer: customersInLine.remove(at: 0))
 // Prints "Now serving Ewa!"
 ```
 
-**注意：**过度使用自动闭包会降低代码的可读性。
+**注意：** 过度使用自动闭包会降低代码的可读性。
 
 如果一个自动闭包想要“逃脱”，同时使用`@autoclosure`和`@escaping`。
 

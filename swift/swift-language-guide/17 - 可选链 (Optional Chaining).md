@@ -1,8 +1,8 @@
-### 【Swift 3.1】17 - 可选链 (Optional Chaining)
+# 【Swift 3.1】17 - 可选链 (Optional Chaining)
 
 可选链是在一个可能为`nil`的可选类型上查询和调用属性、方法和下标的一个过程。如果这个可选类型有值，那么属性、方法或者下标调用成功；如果可选类型值为`nil`，调用属性、方法或者下标就会返回`nil`。多个查询可以连在一起，只要任何一个环节为`nil`，那么整个链条失败。
 
-#### 可选链作为强制解包的一个方法 (Optional Chaining as an Alternative to Forced Unwrapping)
+## 可选链作为强制解包的一个方法 (Optional Chaining as an Alternative to Forced Unwrapping)
 
 我们想访问可选类型的属性、方法或者下标，在这个可选类型的后面加上`?`来表示可选链。可选链返回的结果永远是可选类型的值，即使属性、方法或者下标不是可选类型。
 
@@ -55,7 +55,7 @@ if let roomCount = john.residence?.numberOfRooms {
 // Prints "John's residence has 1 room(s)."
 ```
 
-#### 为可选链定义更多Class模型 (Defining Model Classes for Optional Chaining)
+## 为可选链定义更多Class模型 (Defining Model Classes for Optional Chaining)
 
 我们可以使用多层次的可选链调用属性、方法和下标。下面将用四个类来演示：
 
@@ -118,7 +118,7 @@ class Address {
 }
 ```
 
-#### 使用可选链访问属性 (Accessing Properties Through Optional Chaining)
+## 使用可选链访问属性 (Accessing Properties Through Optional Chaining)
 
 创建一个`Person`类，并尝试访问`numberOfRooms`属性：
 
@@ -160,9 +160,9 @@ john.residence?.address = createAddress()
 
 我们可以发现，`createAddress()`并没有调用，因为`Function was called.`没有打印。
 
-#### 使用可选链调用方法 (Calling Methods Through Optional Chaining)
+## 使用可选链调用方法 (Calling Methods Through Optional Chaining)
 
-我们可以使用可选链来调用方法，并检查那个方法是否调用成功，即使那个方法没有返回值。**注意：**没有返回值的方法，有一个默认返回类型`Void`。
+我们可以使用可选链来调用方法，并检查那个方法是否调用成功，即使那个方法没有返回值。**注意：** 没有返回值的方法，有一个默认返回类型`Void`。
 
 使用可选链调用没有返回值的方法，方法的返回值将会是`Void?`，而不是`Void`，因为使用可选链访问的结果都是可选类型。
 
@@ -186,9 +186,9 @@ if (john.residence?.address = someAddress) != nil {
 // Prints "It was not possible to set the address."
 ```
 
-#### 使用可选链访问下标 (Accessing Subscripts Through Optional Chaining)
+## 使用可选链访问下标 (Accessing Subscripts Through Optional Chaining)
 
-**注意：**使用可选链访问下标，要把`?`放在中括号前面，而不是后面。
+**注意：** 使用可选链访问下标，要把`?`放在中括号前面，而不是后面。
 
 例如：
 
@@ -219,7 +219,7 @@ if let firstRoomName = john.residence?[0].name {
 // Prints "The first room name is Living Room."
 ```
 
-##### 访问可选类型的下标 (Accessing Subscripts of Optioinal Type)
+### 访问可选类型的下标 (Accessing Subscripts of Optioinal Type)
 
 如果一个下标返回一个可选类型的值，例如Swift的`Dictionary`类型的键下标：
 
@@ -231,7 +231,7 @@ testScores["Brian"]?[0] = 72
 // the "Dave" array is now [91, 82, 84] and the "Bev" array is now [80, 94, 81]
 ```
 
-#### 连接多层次链 (Linking Multiple Levels of Chaining)
+## 连接多层次链 (Linking Multiple Levels of Chaining)
 
 如果想要获取的类型不是可选类型，因为可选链，他将会变成可选类型；如果想要获取的类型是可选类型，因为可选链，那么它依然是可选类型。例如，如果想要获取的值是`Init`类型，那么将会返回`Init?`类型，不管可选链有多少层；如果想要获取的值是`Init?`类型，那么仍然返回`Init?`类型，不管可选链有多少层。
 
@@ -263,7 +263,7 @@ if let johnsStreet = john.residence?.address?.street {
 // Prints "John's street name is Laurel Street."
 ```
 
-#### 链接有可选类型返回值的方法 (Chaining on Methods with Optional Return Values)
+## 链接有可选类型返回值的方法 (Chaining on Methods with Optional Return Values)
 
 下面是使用可选链访问有可选类型返回值的方法：
 

@@ -1,10 +1,10 @@
-### 自动引用计数 (Automatic Reference Counting)
+# 自动引用计数 (Automatic Reference Counting)
 
 Swift使用*Automatic Reference Counting*(ARC)来管理应用内存。在大多数情况下，我们不必关心内存的管理。然而，在有些情况下ARC需要更多的信息来管理内存。这个章节就来讨论下这些情况。
 
-**注意：**引用计数只适用于类的实例。结构和枚举是值类型，不是引用类型。
+**注意：** 引用计数只适用于类的实例。结构和枚举是值类型，不是引用类型。
 
-#### ARC如何工作 (How ARC Works)
+## ARC如何工作 (How ARC Works)
 
 每当我们创建一个类的实例，ARC会分配内存来存储这个实例的相关信息。当这个实例不再需要的时候，ARC会释放存储这个是实例相关信息的内存。
 
@@ -14,7 +14,7 @@ Swift使用*Automatic Reference Counting*(ARC)来管理应用内存。在大多�
 
 当我们把这个实例赋给一个属性、常量或者变量，这个属性、常量或者变量就会有一个强引用引用着这个实例。之所以被称为“强”引用，是因为这个属性、常量或者变量牢牢地抓住的这个实例，只要还有强引用存在，这个实例就不允许被释放。
 
-#### ARC实践 (ARC in Action)
+## ARC实践 (ARC in Action)
 
 首先有一个`Person`类：
 
@@ -71,7 +71,7 @@ reference3 = nil
 // Prints "John Appleseed is being deinitialized"
 ```
 
-#### 类实例之间的强引用循环 (Strong Reference Cycles Between Class Instances)
+## 类实例之间的强引用循环 (Strong Reference Cycles Between Class Instances)
 
 上面的例子跟踪了多个强引用引用着`Person`实例，当`Person`实例不在引用时，被释放。
 
@@ -132,19 +132,19 @@ unit4A = nil
 
 两个实例之间互相有一个强引用引用着。
 
-#### 解决两个实例之间的强引用循环 (Resolving Strong Reference Cycles Between Class Instance)
+## 解决两个实例之间的强引用循环 (Resolving Strong Reference Cycles Between Class Instance)
 
 Swift提供了两种方式来解决两个实例之间的强引用循环：弱引用(weak reference)和无主引用(unowned reference)。
 
 当其他实例的生命周期比较短时（也就是说其他实例先被释放），使用弱引用；当其他实例有同样或者更长的生命周期时，使用无主引用。
 
-##### 弱引用 (Weak References)
+### 弱引用 (Weak References)
 
 一个引用不会牢牢抓住它引用的实例，这就叫做弱引用。在属性或者变量声明时，在最前面加上`weak`来提示这将会创建一个弱引用。
 
 当弱引用引用的实例被释放之后，ARC会自动把弱引用设置为`nil`。因为弱引用要求他们的值在运行的时候能被改为`nil`，所以它们总是被声明为变量可选类型，而不是常量可选类型。
 
-**注意：**当ARC把弱引用设置为`nil`时，属性观察者不会被调用。
+**注意：** 当ARC把弱引用设置为`nil`时，属性观察者不会被调用。
 
 把上面的例子更改如下，`Apartment`的属性`tenant`属性声明为弱引用：
 
@@ -199,7 +199,7 @@ unit4A = nil
 
 ![引用](http://upload-images.jianshu.io/upload_images/2057254-efdb6b200b87c8dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-##### 无主引用 (Unowned References)
+### 无主引用 (Unowned References)
 
 当其他实例的有同样或更长的生命周期时，使用无主引用。在属性或者变量声明时，在最前面加上`unowned`来提示这将会创建一个无主引用。
 
@@ -253,9 +253,9 @@ john = nil
 // Prints "Card #1234567890123456 is being deinitialized"
 ```
 
-**注意：**上面这个例子演示的是如何使用安全的无主引用。Swift还提供了不安全的无主引用，可以在需要禁用运行时安全检查时使用。一旦使用了不安全无主引用，我们有责任去检查代码的安全性。使用`unowned(unsafe)`来定义一个不安全的无主引用。不安全的无主引用引用的实例被释放之后，如果我们还继续访问，那我们访问的是那个实例之前在内存的存储位置，这是一个不安全的操作。
+**注意：** 上面这个例子演示的是如何使用安全的无主引用。Swift还提供了不安全的无主引用，可以在需要禁用运行时安全检查时使用。一旦使用了不安全无主引用，我们有责任去检查代码的安全性。使用`unowned(unsafe)`来定义一个不安全的无主引用。不安全的无主引用引用的实例被释放之后，如果我们还继续访问，那我们访问的是那个实例之前在内存的存储位置，这是一个不安全的操作。
 
-##### 无主引用和隐式解包可选类型属性 (Unowned References and Implicitly Unwrapped Optional Properties)
+### 无主引用和隐式解包可选类型属性 (Unowned References and Implicitly Unwrapped Optional Properties)
 
 上面演示了两种常见的造成强引用循环的情况。
 
@@ -297,7 +297,7 @@ print("\(country.name)'s capital city is called \(country.capitalCity.name)")
 // Prints "Canada's capital city is called Ottawa"
 ```
 
-#### 闭包的强引用循环 (Strong Reference Cycles for Closures)
+## 闭包的强引用循环 (Strong Reference Cycles for Closures)
 
 如果我们把闭包赋给类的属性，而这个闭包又引用着这个类的实例（包括引用这个类的属性和方法），这也会造成强引用循环。造成循环引用是因为闭包，因为闭包向class一样，是引用类型。
 
@@ -343,7 +343,7 @@ print(paragraph!.asHTML())
 
 `asHTML`引用着闭包，闭包又引用着`self.name`和`self.text`。
 
-**注意：**即使闭包多次引用`self`，但是只有一个强引用引用着`HTMLElement`实例。
+**注意：** 即使闭包多次引用`self`，但是只有一个强引用引用着`HTMLElement`实例。
 
 把`paragraph`设置为`nil`，`HTMLElement`实例和闭包不会被释放，因为强引用循环：
 
@@ -351,11 +351,11 @@ print(paragraph!.asHTML())
 paragraph = nil
 ```
 
-#### 解决闭包的强引用循环 (Resolving Strong Reference Cycles for Closures)
+## 解决闭包的强引用循环 (Resolving Strong Reference Cycles for Closures)
 
 定义一个捕获列表来解决闭包和类实例之间的强引用循环问题，并把捕获列表作为闭包的一部分。
 
-##### 定义一个捕获列表 (Defining a Capture List)
+### 定义一个捕获列表 (Defining a Capture List)
 
 语法如下：
 
@@ -375,13 +375,13 @@ lazy var someClosure: () -> String = {
 }
 ```
 
-##### 弱引用和无主引用 (Weak and Unowned References)
+### 弱引用和无主引用 (Weak and Unowned References)
 
 当闭包和闭包捕获的实例总是互相引用并同时被释放时，把捕获定义为无主引用。
 
 当捕获的引用在未来某些时候可能变为`nil`时，把捕获定义为弱引用。弱引用永远都是一个可选类型，并且当他们引用的实例被释放时会自动变为`nil`。
 
-**注意：**如果捕获的引用从不变成`nil`，一定要把捕获定义为无主引用，而不是弱引用。
+**注意：** 如果捕获的引用从不变成`nil`，一定要把捕获定义为无主引用，而不是弱引用。
 
 无主引用可以用于解决上面`HTMLElement`这个例子的循环引用问题：
 

@@ -1,4 +1,4 @@
-### 属性 (Properties)
+# 属性 (Properties)
 
 存储属性作为实例的一部分，存在常量和变量的值，而计算属性是计算一个值，而不是存储一个值。计算属性由类、结构和枚举提供；而存储属性只能由类和结构提供。
 
@@ -6,7 +6,7 @@
 
 另外，可以定义属性观察者来监测属性值的变化。属性观察者可以添加到自己定义的存储属性中，也可以添加到从父类继承的属性中。
 
-#### 存储属性 (Stored Properties)
+## 存储属性 (Stored Properties)
 
 ```swift
 struct FixedLengthRange {
@@ -21,7 +21,7 @@ rangeOfThreeItems.firstValue = 6
 
 `firstValue`是变量存储属性，`length`是常量存储属性。
 
-##### 常量结构实例的存储属性 (Stored Properties of Constant Structure Instances)
+### 常量结构实例的存储属性 (Stored Properties of Constant Structure Instances)
 
 如果创建一个结构实例，并赋给一个常量，那么就不能修改实例的属性，即使这个属性是一个变量属性：
 
@@ -38,11 +38,11 @@ rangeOfFourItems.firstValue = 6
 
 而对于引用类型的类而言，把一个引用类型的实例赋值给一个常量，我们任然可以修改实例的变量属性。
 
-##### 懒惰存储属性 (Lazy Stored Properties)
+### 懒惰存储属性 (Lazy Stored Properties)
 
 一个属性在第一次使用之前，他的初始值没有被计算，那么这个属性称为懒惰存储属性。
 
-**注意：**懒惰存储属性必须声明为一个变量，因为实例初始化完成后，懒惰属性可能还没被获取。常量属性在实例初始化完成之前必须有一个值，所有不能声明为懒惰属性。
+**注意：** 懒惰存储属性必须声明为一个变量，因为实例初始化完成后，懒惰属性可能还没被获取。常量属性在实例初始化完成之前必须有一个值，所有不能声明为懒惰属性。
 
 当一个属性的初始值依赖于外部因素，而外部因素的值需要在实例初始化完成之后才能确定，那么把这个属性声明为懒惰属性非常有用。当一个属性的初始值需要很复杂的计算时，懒惰属性也非常有用。
 
@@ -78,9 +78,9 @@ print(manager.importer.fileName)
 // Prints "data.txt"
 ```
 
-**注意**：如果一个懒惰属性被多个线程同时访问，而且这个属性还没有被初始化时，不能保证这个属性只被初始化一次。
+**注意：** 如果一个懒惰属性被多个线程同时访问，而且这个属性还没有被初始化时，不能保证这个属性只被初始化一次。
 
-#### 计算属性 (Computed Properties)
+## 计算属性 (Computed Properties)
 
 计算属性提供了一个getter和一个可选的setter方法来间接地获取和设置其他属性和其他值。
 
@@ -128,7 +128,7 @@ print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
 
 ![Coordinate](http://upload-images.jianshu.io/upload_images/2057254-cf6aa3b0f66da8fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-##### 简写Setter的定义 (Shorthand Setter Declaration)
+### 简写Setter的定义 (Shorthand Setter Declaration)
 
 如果setter方法没有给新的值定义名字，我们可以使用一个默认名字`newValue`。
 
@@ -150,11 +150,11 @@ struct AlternativeRect {
 }
 ```
 
-##### 只读计算属性 (Read-Only Computed Properties)
+### 只读计算属性 (Read-Only Computed Properties)
 
 一个计算属性只有getter没有setter，那么这个计算属性就是只读计算属性。只读计算属性智能返回一个值，通过点语法访问，但是不能设置新的值。
 
-**注意：**必须用`var`把计算属性(包括只读计算属性)定义为可变属性，因为他们的值是不固定的。
+**注意：** 必须用`var`把计算属性(包括只读计算属性)定义为可变属性，因为他们的值是不固定的。
 
 定义只读属性时，我们可以把`get`关键字和大括号省略：
 
@@ -170,7 +170,7 @@ print("the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)")
 // Prints "the volume of fourByFiveByTwo is 40.0"
 ```
 
-#### 属性观察者 (Property Observers)
+## 属性观察者 (Property Observers)
 
 属性观察者观察属性值得变化，并作出响应。只要属性的值被设置，属性观察者就会被调用，即使新的值和属性的当前值一样。
 
@@ -185,7 +185,7 @@ print("the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)")
 
 如果实现了一个`didSet`观察者，会把旧的值作为一个常量参数。可以为这个旧的值指定一个名字，如果没有指定，那么默认是`oldValue`。如果在`didSet`观察者里面给属性赋一个新值，那么这个新值会替换掉刚刚设置的那个值。
 
-**注意：**当父类的属性在子类的初始化器被设置，那么父类属性的`willSet`和`didSet`会在父类的初始化器调用之后被调用。在设置父类自己的属性时，父类的`willSet`和`didSet`在父类的初始化器调用之前不会被调用。
+**注意：** 当父类的属性在子类的初始化器被设置，那么父类属性的`willSet`和`didSet`会在父类的初始化器调用之后被调用。在设置父类自己的属性时，父类的`willSet`和`didSet`在父类的初始化器调用之前不会被调用。
 
 ```swift
 class StepCounter {
@@ -212,21 +212,21 @@ stepCounter.totalSteps = 896
 // Added 536 steps
 ```
 
-**注意：**如果把含有观察者的属性作为一个in-out参数传入一个方法，那么`willSet`和`didSet`总是会被调用，这是因为in-out参数的"copy-in copy-out"内存模式：在方法结束时，这个值会被返回被属性。
+**注意：** 如果把含有观察者的属性作为一个in-out参数传入一个方法，那么`willSet`和`didSet`总是会被调用，这是因为in-out参数的"copy-in copy-out"内存模式：在方法结束时，这个值会被返回被属性。
 
-#### 全局和本地变量 (Global and Local Variables)
+## 全局和本地变量 (Global and Local Variables)
 
 全局变量是在任何方法、闭包和类型上下文之外定义的。而局部变量是在方法、闭包和类型上下文之内定义的。
 
-**注意：**全局常量和变量都是懒惰地计算，类似懒惰存储属性。但是全局常量和变量不需要使用`lazy`标记。本地常量和变量从来都不是懒惰的计算。
+**注意：** 全局常量和变量都是懒惰地计算，类似懒惰存储属性。但是全局常量和变量不需要使用`lazy`标记。本地常量和变量从来都不是懒惰的计算。
 
-#### 类型属性 (Type Properties)
+## 类型属性 (Type Properties)
 
 实例属性是属于一个特定类型的实例。我们可以定义属于类型的属性。
 
-**注意：**不同于实例属性，我们必须给类型属性一个默认值。因为类型没有初始化器来给类型属性赋值。类型存储属性只要在第一次被访问的时候才会初始化，并且保证只会初始化一次，即使是在多线程中同时被访问，不需要使用`lazy`关键字标记。
+**注意：** 不同于实例属性，我们必须给类型属性一个默认值。因为类型没有初始化器来给类型属性赋值。类型存储属性只要在第一次被访问的时候才会初始化，并且保证只会初始化一次，即使是在多线程中同时被访问，不需要使用`lazy`关键字标记。
 
-##### 类型属性语法 (Type Property Syntax)
+### 类型属性语法 (Type Property Syntax)
 
 使用`static`关键字来定义类型属性，对于class类型的计算类型属性，可以使用`class`来定义，可以让子类重新父类的实现。
 
@@ -256,7 +256,7 @@ class SomeClass {
 }
 ```
 
-##### 查询和设置类型属性 (Querying and Setting Type Properties)
+### 查询和设置类型属性 (Querying and Setting Type Properties)
 
 就像实例属性一样，类型属性也是通过点语法来查询和设置的：
 

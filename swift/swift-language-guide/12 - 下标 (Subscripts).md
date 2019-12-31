@@ -1,8 +1,8 @@
-### 下标 (Subscripts)
+# 下标 (Subscripts)
 
 类、结构和枚举都可以定义下标，能让我们快速访问一个集合、列表或序列的成员元素。一个类型可以定义多个下标。
 
-#### 下标语法 (Subscript Syntax)
+## 下标语法 (Subscript Syntax)
 
 下标语法类似于实例方法和计算属性语法。使用`subscript`关键字来定义下标，然后指定一个或多个参数和返回类型，就像实例方法一样。但不同于实例方法，下标可以读写或者只读。
 
@@ -40,7 +40,7 @@ let threeTimesTable = TimeTable(multiplier: 3)
 print("six times three is \(threeTimeTable[6])")
 ```
 
-#### 下标的使用 (Subscript Usage)
+## 下标的使用 (Subscript Usage)
 
 下标的意义决定于它所在的上下文。下标通常作为一个捷径，用于方法集合、列表或者序列的成员元素。
 
@@ -51,7 +51,7 @@ var numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
 numberOfLegs["bird"] = 2
 ```
 
-#### 下标选项 (Subscript Options)
+## 下标选项 (Subscript Options)
 
 下标可以接受任意数量任意类型的参数，也可以返回任意类型的值，还可以使用可变参数，但是不能使用in-out参数和给参数提供默认值。
 

@@ -1,10 +1,10 @@
-### 【Swift 3.1】19 - 类型转换 (Type Casting)
+# 19 - 类型转换 (Type Casting)
 
 **类型转换**是用来检查实例的类型，或在继承链中把实例作为不同的父类或子类的一种方法。
 
 Swift中的类型转换用`is`和`as`来实现。
 
-#### 为类型转换定义一个类的层次结构 (Defining a Class Hierarchy for Type Casting)
+## 为类型转换定义一个类的层次结构 (Defining a Class Hierarchy for Type Casting)
 
 第一个类是`MediaItem`。假设所有的媒体项目，包括电影和音乐，并且有名字：
 
@@ -52,7 +52,7 @@ let library = [
 
 虽然这个数组装的是`Movie`和`Song`实例，但如果遍历这个数组，取出来的元素是`MediaItem`类型，而不是`Movie`和`Song`类型。为了使用他们的真实类型，我们需要检查他们的类型，或者向下转型。
 
-#### 检查类型 (Checking Type)
+## 检查类型 (Checking Type)
 
 使用`is`来检查一个实例是否是一个子类类型。如果是一个子类类型，返回`true`，否则返回`false`。
 
@@ -73,7 +73,7 @@ print("Media library contains \(movieCount) movies and \(songCount) songs")
 // Prints "Media library contains 2 movies and 3 songs"
 ```
 
-#### 向下转型 (Downcasting)
+## 向下转型 (Downcasting)
 
 一个类型的常量或变量实际上可能是子类的实例类型，我们可以使用`as?`或者`as!`来向下转型到子类类型。
 
@@ -92,9 +92,9 @@ for item in library {
 }
 ```
 
-**注意：**转型实际上不会修改实例或者改变它的值，在底层中，还是同一个实例。
+**注意：** 转型实际上不会修改实例或者改变它的值，在底层中，还是同一个实例。
 
-#### Any和AnyObject的类型转换 (Type Casting for Any and AnyObject)
+## Any和AnyObject的类型转换 (Type Casting for Any and AnyObject)
 
 Swift提供了两种不确定的类型：
 

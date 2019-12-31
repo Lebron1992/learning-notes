@@ -1,8 +1,8 @@
-### 【Swift 3.1】18 - 错误处理 (Error Handling)
+# 18 - 错误处理 (Error Handling)
 
 错误处理是在程序中响应错误条件和恢复错误条件的过程。
 
-#### 表示和抛出错误 (Representing and Throwing Errors)
+## 表示和抛出错误 (Representing and Throwing Errors)
 
 在Swift中，错误是用遵循了`Error`协议的类型的值来表示。枚举非常适合用来封装相关的错误。
 
@@ -20,7 +20,7 @@ enum VendingMachineError: Error {
 throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
 ```
 
-#### 处理错误 (Handling Errors)
+## 处理错误 (Handling Errors)
 
 当错误抛出后，一些相关的代码必须处理错误，例如改正错误、尝试另外一种办法或者告知用户有错误。
 
@@ -28,7 +28,7 @@ throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
 
 当一个方法抛出了错误，它会改变程序的流程，所以及时发现错误的位置非常重要。为了发现错误的位置，在调用方法或初始化器的代码前使用`try`、`try?`或者`try!`。
 
-##### 使用抛出方法来传递错误 (Propagating Errors Using Throwing Functions)
+### 使用抛出方法来传递错误 (Propagating Errors Using Throwing Functions)
 
 为了表示一个方法或初始化器可以抛出异常，在方法参数后面加上`throw`关键字：
 
@@ -37,7 +37,7 @@ func canThrowErrors() throws -> String
 func cannotThrowErrors() -> String
 ```
 
-**注意：**只有抛出方法才能传递错误，不能抛出错误的方法只能在方法内处理错误。
+**注意：** 只有抛出方法才能传递错误，不能抛出错误的方法只能在方法内处理错误。
 
 下面是一个例子：
 
@@ -109,7 +109,7 @@ struct PurchasedSnack {
 }
 ```
 
-##### 使用Do-Catch来处理错误 (Handling Errors Using Do-Catch)
+### 使用Do-Catch来处理错误 (Handling Errors Using Do-Catch)
 
 `do-catch`语句的通用形式：
 
@@ -143,7 +143,7 @@ do {
 // Prints "Insufficient funds. Please insert an additional 2 coins."
 ```
 
-##### 把错误转换为可选值 (Converting Error to Optional Values)
+### 把错误转换为可选值 (Converting Error to Optional Values)
 
 使用`try?`把错误转为可选值。在使用`try?`的语句中，如果有错误抛出，那么这个语句的值为`nil`。
 
@@ -174,7 +174,7 @@ func fetchData() -> Data? {
 }
 ```
 
-##### 禁用错误传递 (Disabling Error Propagation)
+### 禁用错误传递 (Disabling Error Propagation)
 
 有时候我们知道一个能抛出错误的方法在运行过程中时间上不会抛出错误。在这种情况下，我们可以在语句前使用`try!`来禁用错误传递，并且可以封装在断言内，如果真的有错误抛出，那么程序报运行时错误。
 
@@ -184,7 +184,7 @@ func fetchData() -> Data? {
 let photo = try! loadImage(atPath: "./Resources/John Appleseed.jpg")
 ```
 
-#### 指定清理操作 (Specifying Cleanup Actions)
+## 指定清理操作 (Specifying Cleanup Actions)
 
 使用`defer`语句在代码执行离开当前代码块之前执行一些语句。不管代码执行如何离开当前代码块，不管是因为报错、`return`或者`break`，`defer`中的语句都能让我们做一些必要的清理。例如，可以使用`defer`语句来保证文件描述符被关闭和手动分配的内存被释放。
 
@@ -207,4 +207,4 @@ func processFile(filename: String) throws {
 
 上面这个例子使用`defer`语句来保证`open(_:)`方法有对应的`close(_:)`方法。
 
-**注意：**即使没有涉及错误处理代码也可以使用`defer`语句。
+**注意：** 即使没有涉及错误处理代码也可以使用`defer`语句。

@@ -1,4 +1,4 @@
-### 【Swift 3.1】21 - 扩展 (Extensions)
+# 21 - 扩展 (Extensions)
 
 扩展可以在已经存在的类、结构、枚举或者协议上添加新的功能。Swift的扩展类似于OC的分类(不同于OC的是，Swift的扩展没有名字)。
 
@@ -13,7 +13,7 @@ Swift的扩展可以：
 
 **注意：** 扩展可以添加新的功能，但是不能重写已经存在的方法。
 
-#### 扩展语法 (Extension Syntax)
+## 扩展语法 (Extension Syntax)
 
 使用`extension`关键字：
 
@@ -31,9 +31,9 @@ extension SomeType: SomeProtocol, AnotherProtocol {
 }
 ```
 
-**注意：**如果定义一个扩展添加新的功能到已经存在的类，那么这个存在的类的所有实例都可以使用这些新的方法。即使他们是在定义扩展之前创建的。
+**注意：** 如果定义一个扩展添加新的功能到已经存在的类，那么这个存在的类的所有实例都可以使用这些新的方法。即使他们是在定义扩展之前创建的。
 
-#### 计算属性 (Computed Properties)
+## 计算属性 (Computed Properties)
 
 下面是一个例子：
 
@@ -61,13 +61,13 @@ print("A marathon is \(aMarathon) meters long")
 // Prints "A marathon is 42195.0 meters long"
 ```
 
-**注意：**扩展可以添加新的计算属性，但是不能添加存储属性或者添加属性观察者到已经存在的属性。
+**注意：** 扩展可以添加新的计算属性，但是不能添加存储属性或者添加属性观察者到已经存在的属性。
 
-#### 初始化器 (Initializers)
+## 初始化器 (Initializers)
 
 扩展可以为一个类添加新的便利初始化器，但是不能添加指定初始化器或者反初始化器到。
 
-**注意：**一个值类型为所有存储属性都提供默认值，并且没有自定义初始化器，如果我们使用扩展添加初始化器到这个值类型中，我们可以在扩展中调用默认的初始化器和逐一成员初始化器。
+**注意：** 一个值类型为所有存储属性都提供默认值，并且没有自定义初始化器，如果我们使用扩展添加初始化器到这个值类型中，我们可以在扩展中调用默认的初始化器和逐一成员初始化器。
 
 下面是一个例子：
 
@@ -112,7 +112,7 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
 // centerRect's origin is (2.5, 2.5) and its size is (3.0, 3.0)
 ```
 
-#### 方法 (Methods)
+## 方法 (Methods)
 
 添加一个实例方法：
 
@@ -135,7 +135,7 @@ extension Int {
 
 ```
 
-##### Mutating 实例方法 (Mutating Instance Methods)
+### Mutating 实例方法 (Mutating Instance Methods)
 
 使用扩展添加的实例方法也可以改变实例自己。修改`self`或者它的属性的结构和枚举方法必须标记为`mutating`。
 
@@ -151,7 +151,7 @@ someInt.square()
 // someInt is now 9
 ```
 
-#### 下标 (Subscripts)
+## 下标 (Subscripts)
 
 扩展可以添加新的下标。下面这个例子添加下标到`Int`类型中。下标`[n]`方法从右往左数的第`n`个位置的数字：
 
@@ -187,7 +187,7 @@ extension Int {
 0746381295[9]
 ```
 
-#### 嵌套类型 (Nested Types)
+## 嵌套类型 (Nested Types)
 
 扩展可以添加嵌套类型到已经存在的类、结构和枚举中：
 

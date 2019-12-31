@@ -1,8 +1,8 @@
-### 方法 (Functions)
+# 方法 (Functions)
 
 类、结构和枚举都可以定义实例方法和类方法。与C和OC一个主要的不同点，就是Swift的结构和枚举能定义方法，而在OC中只有类才可以定义方法。
 
-#### 实例方法 (Instance Methods)
+## 实例方法 (Instance Methods)
 
 实例方法内部可以访问其他实例方法和属性。
 
@@ -34,7 +34,7 @@ counter.reset()
 // the counter's value is now 0
 ```
 
-##### self属性 (The self Property)
+### self属性 (The self Property)
 
 每一个类型的实例都有一个隐式的属性`self`，正好等于实例自己。在它自己的实例方法内部使用`self`来引用当前实例。
 
@@ -60,7 +60,7 @@ if somePoint.isToTheRightOf(x: 1.0) {
 // Prints "This point is to the right of the line where x == 1.0"
 ```
 
-##### 在实例方法内部修改值类型 (Modifying Value Types from Within Instance Methods)
+### 在实例方法内部修改值类型 (Modifying Value Types from Within Instance Methods)
 
 结构和枚举都是值类型。默认情况下，值类型的属性在自己的实例方法内部是不能修改的。
 
@@ -90,7 +90,7 @@ fixedPoint.moveBy(x: 2.0, y: 3.0)
 // this will report an error
 ```
 
-##### 在Mutating方法内部给self赋值 (Assignto self Within a Mutating Method)
+### 在Mutating方法内部给self赋值 (Assignto self Within a Mutating Method)
 
 ```swift
 struct Point {
@@ -124,11 +124,11 @@ ovenLight.next()
 // ovenLight is now equal to .off
 ```
 
-#### 类方法 (Type Methods)
+## 类方法 (Type Methods)
 
 使用`static`来定义类方法，class类型可以使用`class`关键字，以允许子类重写父类的实现。
 
-**注意：**在OC中，我们只能在class中定义类方法。而在Swift，可以在类、结构和枚举中定义类方法。
+**注意：** 在OC中，我们只能在class中定义类方法。而在Swift，可以在类、结构和枚举中定义类方法。
 
 ```swift
 class SomeClass {

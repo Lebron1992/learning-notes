@@ -1,6 +1,6 @@
-### 字符串和字符 (Strings and Characters)
+# 字符串和字符 (Strings and Characters)
 
-#### 字符串字面值 (String Literals)
+## 字符串字面值 (String Literals)
 
 使用字符串字面值来初始化一个常量或者变量：
 
@@ -10,7 +10,7 @@ let someString = "Some string literal value"
 
 Swift根据字面值来推断出`someString`是`String`类型。
 
-#### 初始化一个空字符串
+## 初始化一个空字符串
 
 为了创建更长的字符串，我们通常要先初始化一个空字符串，我们可以使用下面两种方法：
 
@@ -29,7 +29,7 @@ if emptyString.isEmpty {
 // Prints "这里什么都没有"
 ```
 
-#### 字符串的可变性 (String Mutability)
+## 字符串的可变性 (String Mutability)
 
 使用`let`声明一个不可变的字符串，用`var`声明一个可变的字符串：
 
@@ -45,13 +45,13 @@ constantString += "and another Highlander"
 
 在OC中，需要使用`NSString`和`NSMutableString`来分别定义不可变和可变字符串。
 
-#### 字符串是值类型 (Strings Are Value Types)
+## 字符串是值类型 (Strings Are Value Types)
 
 Swift的`String`类型是值类型。如果我们创建一个新的字符串，那么把这个字符串以复制的形式传给一个函数或方法，或者把它赋值给另外一个常量或常量。
 
 在Swift的底层实现，Swift的编译器会优化字符串的使用，在有必要的时候才会进行真正的复制，这就意味着把字符串作为值类型在使用的时候，都有非常好的性能。
 
-#### 与字符交互 (Working with Characters)
+## 与字符交互 (Working with Characters)
 
 使用`for-in`循环遍历字符串的`characters`属性来访问单个字符：
 
@@ -75,7 +75,7 @@ print(catString)
 // Prints "Cast!🐱"
 ```
 
-####连接字符串和字符 (Concatenating Strings and Characters)
+## 连接字符串和字符 (Concatenating Strings and Characters)
 
 使用加号运算符(`+`)来拼接两个字符串：
 
@@ -102,9 +102,9 @@ welcome.append(exclamationMark)
 // welcome 等于 "hello there!"
 ```
 
-**注意：**不能添加一个`String`或者`Character`到一个已经存在的`Character`变量，因为`Character`类型的值只能包含一个字符。
+**注意：** 不能添加一个`String`或者`Character`到一个已经存在的`Character`变量，因为`Character`类型的值只能包含一个字符。
 
-#### 字符串插值 (String Interpolation)
+## 字符串插值 (String Interpolation)
 
 字符串插值可以把常量、变量、字面值和其他表达式混合在一起，拼接成一个新的字符串。
 
@@ -114,19 +114,19 @@ let message = "\(multiplier) 乘以 2.5 等于 \(Double(multiplier) * 2.5)"
 // message is "3 乘以 2.5 等于 7.5"
 ```
 
-#### Unicode
+## Unicode
 
 *Unicode*是在不同系统中编码、展示和处理文本的国际标准。可以让我们以国际化的形式在不同的语言中展示几乎任何字符，从外部文件（例如text文件或网页）读取那些字符或者把那些字符写到外部文件。Swift的`String`和`Character`类型是完全兼容Unicode的。
 
-##### Unicode标量 (Unicode Scalars)
+### Unicode标量 (Unicode Scalars)
 
 在底层，Swift的原生`String`类型是从Unicode标量值建立的。一个Unicode标量是一个字符或者修饰符唯一的21-bit数字，例如`U+0061`是`LATIN SMALL LETTER A`(`"a"`)，`U+1F425`是`FRONT-FACING BABY CHICK` (`"🐥"`)。
 
-**注意：**一个Unicode标量是在`U+0000`到`U+D7FF`(包含首尾)这个范围中的一个代码点(*code point*)，或者是`U+E000`到`U+10FFFF`(包含首尾)这个范围的一个代码点。Unicode标量不包含Unicode代理对(surrogate pair)代码点，代理对的代码点范围是`U+D800`到`U+DFFF`(包含首尾)。
+**注意：** 一个Unicode标量是在`U+0000`到`U+D7FF`(包含首尾)这个范围中的一个代码点(*code point*)，或者是`U+E000`到`U+10FFFF`(包含首尾)这个范围的一个代码点。Unicode标量不包含Unicode代理对(surrogate pair)代码点，代理对的代码点范围是`U+D800`到`U+DFFF`(包含首尾)。
 
 并不是所有的21-bitUnicode标量都赋值给了一个字符，有一些标量是保留起来给未来使用的。被赋值给字符串的Unicode标量都有一个名字，例如上面例子中的`LATIN SMALL LETTER A`和FRONT-FACING BABY CHICK`。
 
-##### 字符串字面值中的特殊字符 (Special Characters in String Literals)
+### 字符串字面值中的特殊字符 (Special Characters in String Literals)
 
 字符串字面值可以包含以下字符：
 
@@ -141,7 +141,7 @@ let blackHeart = "\u{2665}"      // ♥,  Unicode scalar U+2665
 let sparklingHeart = "\u{1F496}" // 💖, Unicode scalar U+1F496
 ```
 
-##### 扩展字形集群 (Extended Grampheme Clusters)
+### 扩展字形集群 (Extended Grampheme Clusters)
 
 每个Swift`Character`类型实例代表着一个扩展字形集群。一个扩展字形集群是一系列的一个或多个Unicode标量，并形成一个人类能够读懂的字符。
 
@@ -177,7 +177,7 @@ Counting Characters
 ```
 
 
-#### 字符计数 (Counting Characters)
+## 字符计数 (Counting Characters)
 
 使用字符串的`characters`的`count`属性来后去字符的个数：
 
@@ -187,7 +187,7 @@ print("unusualMenagerie has \(unusualMenagerie.characters.count) characters")
 // Prints "unusualMenagerie has 40 characters"
 ```
 
-**注意**：在Swift中，使用扩展字形集群形成的字符，在拼接和修改字符串时不一定会影响字符的个数。例如：初始化一个字符串`cafe`，接着在后面追加`COMBINING ACUTE ACCENT (U+0301)`，最终得到的字符串还是只有4个字符，第四个字符是`é`，不是`e`:
+**注意：** 在Swift中，使用扩展字形集群形成的字符，在拼接和修改字符串时不一定会影响字符的个数。例如：初始化一个字符串`cafe`，接着在后面追加`COMBINING ACUTE ACCENT (U+0301)`，最终得到的字符串还是只有4个字符，第四个字符是`é`，不是`e`:
 
 ```swift
 var word = "cafe"
@@ -200,13 +200,13 @@ print("the number of characters in \(word) is \(word.characters.count)")
 // Prints "the number of characters in café is 4"
 ```
 
-**注意：**扩展字形集群可以有一个或多个Unicode标尺组成，这意味着不同的字符和同一个字符的不同展示方式需要不同大小的内存来存储。所以，Swift中的字符不会在字符串的展示中占用相同的内存量。那么，如果不遍历一个字符串，就无法知道这个字符串的字符数，从而无法确定字符的扩展字形集群边界。如果我们要使用特别长的字符串，必须清楚地知道字符串的`characters`属性必须遍历整个字符串的全部Unicode标量来决定字符串的所有字符。
+**注意：** 扩展字形集群可以有一个或多个Unicode标尺组成，这意味着不同的字符和同一个字符的不同展示方式需要不同大小的内存来存储。所以，Swift中的字符不会在字符串的展示中占用相同的内存量。那么，如果不遍历一个字符串，就无法知道这个字符串的字符数，从而无法确定字符的扩展字形集群边界。如果我们要使用特别长的字符串，必须清楚地知道字符串的`characters`属性必须遍历整个字符串的全部Unicode标量来决定字符串的所有字符。
 
 在拥有相同字符得到情况下，`String`的`characters`属性返回的字符数不总是等于`NSString`的`length`属性。`NSString`的长度是基于在字符串的UTF-16显示之内的16-bit代码单元的数字，而不是基于在字符串之内的Unicode扩展字形集群的数字。
 
-#### 访问和修改字符串 (Accessing and Modifying a String)
+## 访问和修改字符串 (Accessing and Modifying a String)
 
-##### 字符串索引 (String Indices)
+### 字符串索引 (String Indices)
 
 每个`String`都有一个关联的索引类型，`String.Index`，对应着字符串里的没一个字符的位置。
 
@@ -244,9 +244,9 @@ for index in greeting.characters.indices {
 // Prints "G u t e n   T a g ! "
 ```
 
-**注意：**我们可以在遵循了`Collection`协议的任何类型中使用`startIndex`/`endIndex`属性和`index(before:)`/`index(after:)`/`index(_:offsetBy:)`方法，包括：`String`、`Array`、`Dictionary`、`Set`。
+**注意：** 我们可以在遵循了`Collection`协议的任何类型中使用`startIndex`/`endIndex`属性和`index(before:)`/`index(after:)`/`index(_:offsetBy:)`方法，包括：`String`、`Array`、`Dictionary`、`Set`。
 
-##### 插入和移除 (Inserting and Removing)
+### 插入和移除 (Inserting and Removing)
 
 在特定的位置插入一个字符，使用`insert(_:at:)`；在特定的位置插入另外一个字符串内容，使用`insert(contentsOf:at:)`：
 
@@ -270,13 +270,13 @@ welcome.removeSubrange(range)
 // welcome 现在是 hello
 ```
 
-**注意：**我们可以在遵循了`RangeReplaceableCollection`协议的任何类型中使用`insert(_:at:)`、`insert(contentsOf:at:)`、`remove(at:)`和`removeSubrange(_:)`方法，包括：`String`、`Array`、`Dictionary`、`Set`。
+**注意：** 我们可以在遵循了`RangeReplaceableCollection`协议的任何类型中使用`insert(_:at:)`、`insert(contentsOf:at:)`、`remove(at:)`和`removeSubrange(_:)`方法，包括：`String`、`Array`、`Dictionary`、`Set`。
 
-#### 字符串的比较 (Comparing Strings)
+## 字符串的比较 (Comparing Strings)
 
 Swift提供了三种方式来进行文本比较：1）字符串和字符相等；2）前缀相等；3）后缀相等。
 
-##### 字符串和字符相等 (String and Character Equality)
+### 字符串和字符相等 (String and Character Equality)
 
 使用等于`==`和不等于`!=`进行比较：
 
@@ -317,9 +317,9 @@ if latinCapitalLetterA != cyrillicCapitalLetterA {
 // Prints "These two characters are not equivalent."
 ```
 
-**注意：**Swift中的字符和字符串对区域不敏感。
+**注意：** Swift中的字符和字符串对区域不敏感。
 
-##### 前缀和后缀相等 (Prefix and Suffix Equality)
+### 前缀和后缀相等 (Prefix and Suffix Equality)
 
 使用`hasPrefix(_:)`和`hasSuffix(_:)`来判断一个字符串是否有特定的前缀或者后缀。
 
@@ -361,7 +361,7 @@ print("\(mansionCount) mansion scenes; \(cellCount) cell scenes")
 
 ```
 
-#### Unicode表示的字符串 (Unicode Representations of Strings)
+## Unicode表示的字符串 (Unicode Representations of Strings)
 
 当一个Unicode字符串被写入文本文件或者其他内存时，字符串的Unicode标量会被以一种Unicode定义的编码形式编码。每一种形式将字符串编码到一个小方块，也就是代码单元。这些形式包括：1）UTF-8编码形式(把一个字符串编码为8-bit代码单元)；2）UTF-16编码形式(把一个字符串编码为16-bit代码单元)；3）UTF-32编码形式(把一个字符串编码为32-bit代码单元)。
 
@@ -373,7 +373,7 @@ print("\(mansionCount) mansion scenes; \(cellCount) cell scenes")
 
 下面的例子将以不同的展示方式来展示这两个字符或字符串：1）一个由`D`、`o`、`g`和`!!`(`DOUBLE EXCLAMATION MARK`，或者Unicode标量`U+203C`)组成的字符串；2）字符：🐶 (`DOG FACE`，或者Unicode标量`U+1F436`)。
 
-##### UTF-8 展示 (UTF-8 Representation)
+### UTF-8 展示 (UTF-8 Representation)
 
 遍历`utf8`属性来访问字符串的UTF-8展示，这个属性是`String.UTF8View`类型，是无符号8-bit (`UInt8`)值的集合。
 
@@ -388,7 +388,7 @@ print("")
 // 68 111 103 226 128 188 240 159 144 182
 ```
 
-##### UTF-16 展示 (UTF-16 Representation)
+### UTF-16 展示 (UTF-16 Representation)
 
 遍历`utf16`属性来访问字符串的UTF-16展示，这个属性是`String.UTF16View`类型，是无符号8-bit (`UInt8`)值的集合。
 
@@ -403,7 +403,7 @@ print("")
 // Prints "68 111 103 8252 55357 56374 "
 ```
 
-##### Unicode标量展示 (Unicode Scalar Representation)
+### Unicode标量展示 (Unicode Scalar Representation)
 
 遍历`unicodeScalars`属性来访问字符串的Unicode标量展示。这个属性是`UnicodeScalarView`类型，是一个`UnicodeScalar`类型的值的集合。
 

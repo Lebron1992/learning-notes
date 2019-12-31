@@ -1,6 +1,6 @@
-### 基本运算符 (Basic Operators)
+# 基本运算符 (Basic Operators)
 
-#### 术语 (Terminology)
+## 术语 (Terminology)
 
 运算符有一元、二元和三元：
 
@@ -8,7 +8,7 @@
 - 二元运算符操作两个操作数(例如`2 + 3`)。
 - 三元运算符操作三个操作数。像C语言一样，Swift只有一个三元运算符，`a ? b : c`。
 
-#### 赋值运算符 (Assignment Operator)
+## 赋值运算符 (Assignment Operator)
 
 赋值运算符用来初始化变量的值，或者更新变量的值
 
@@ -34,7 +34,7 @@ if x = y {
 }
 ```
 
-#### 算术运算符 (Arithmetic Operators)
+## 算术运算符 (Arithmetic Operators)
 
 Swift支持下面这四个标准的算术运算符：
 
@@ -57,7 +57,7 @@ Swift支持下面这四个标准的算术运算符：
 "hello, " + "world"  // 等于 "hello, world"
 ```
 
-##### 求余运算符 (Remainder Operator)
+### 求余运算符 (Remainder Operator)
 
 ```swift
 9 % 4    // 等于 1
@@ -85,7 +85,7 @@ a = (b * some multiplier(另外一个乘数)) + 余数
 
 其实`b`前面的符号可以忽略，也就意味着`a % b`和`a % -b`的返回值是相等的。
 
-##### 一元减号运算符 (Unary Minus Operator)
+### 一元减号运算符 (Unary Minus Operator)
 
 ```swift
 let three = 3
@@ -93,7 +93,7 @@ let minusThree = -3 		// minusThree等于-3
 let plusThree = -minusThree // plusThree等于3
 ```
 
-##### 一元加号运算符 (Unary Plus Operator)
+### 一元加号运算符 (Unary Plus Operator)
 
 ```swift
 let minusSix = -6
@@ -102,7 +102,7 @@ let alsoMinusSix = +minusSix // alsoMinusSix等于6
 
 一元加号运算符不会改变操作数的值。但是为了保持对称，在代码中负数使用一元加号运算符，正数也加上一元加号运算符。
 
-#### 复合赋值运算符 (Compound Assignment Operators)
+## 复合赋值运算符 (Compound Assignment Operators)
 
 ```swift
 var a = 1
@@ -112,9 +112,9 @@ a += 2
 
 `a += 2`其实是`a = a + 2`的简写。
 
-**注意：**复合赋值运算符不会返回任何值，例如：我们不能这样写：`let b = a += 2`。
+**注意：** 复合赋值运算符不会返回任何值，例如：我们不能这样写：`let b = a += 2`。
 
-#### 比较运算符 (Comparison Operators)
+## 比较运算符 (Comparison Operators)
 
 Swift支持全部C语言的标准运算符：
 
@@ -125,7 +125,7 @@ Swift支持全部C语言的标准运算符：
 - 大于或等于 (`a >= b`)
 - 小于或等于 (`a <= b`)
 
-**注意：**Swift还额外提供了恒等运算符 (*identity operator*) (`===`和`!==`)，用来判断两个对象是否引用同一个实例。
+**注意：** Swift还额外提供了恒等运算符 (*identity operator*) (`===`和`!==`)，用来判断两个对象是否引用同一个实例。
 
 所有的比较运算符都会返回一个`Bool`值：
 
@@ -162,11 +162,9 @@ if name == "world" {
 
 在上面的例子中，按照从左到右一个个比较的规则，因为`1`小于`2`，所以`(1, "zebra")`小于`(2, "apple") `，因为已经发现了两个不相等的元素，后面的元素将不再比较，尽管`zebra`大于`apple`。然而，当发现两个元素相等时，将会继续往下比较。
 
-**注意：**Swift标准库只支持小于7个元素的多元组进行比较。如果多元组的元素大于或等于7个，我们必须自己实现比较运算符。
+**注意：** Swift标准库只支持小于7个元素的多元组进行比较。如果多元组的元素大于或等于7个，我们必须自己实现比较运算符。
 
-
-
-#### 三元运算符 (Ternary Conditional Operator)
+## 三元运算符 (Ternary Conditional Operator)
 
 三元运算符是有三部分的比较特别的运算符，格式：`question ? answer1: answer2`。是下面这个代码的简写：
 
@@ -191,7 +189,7 @@ let rowHeight = contentHeight + (hasHeader ? 50 : 20)
 我们要避免使用三元运算符把多个判断条件组合在一起，因为这会造成代码很难读懂。
 
 
-#### 空合并运算符 (Nil-Coalescing Opeartor)
+## 空合并运算符 (Nil-Coalescing Opeartor)
 
 使用空合并运算符(`a ?? b`)来解包一个可选类型变量，如果a有值，返回`a!`，如果为`nil`，返回默认值`b`。`a`必须是一个可选类型，`b`的类型必须`a`包含的值类型相同。
 
@@ -211,9 +209,9 @@ var colorNameToUse = userDefinedColorName ?? defaultColor
 // userDefinedColorName 为 nil，所以 colorNameToUse被设置为默认值 "red"
 ```
 
-#### 范围运算符 (Range Operators)
+## 范围运算符 (Range Operators)
 
-##### 闭合范围运算符 (Closed Range Operator)
+### 闭合范围运算符 (Closed Range Operator)
 
 闭合范围运算符(`a...b`)定义了一个从`a`到`b`的范围，并且包括`a`和`b`，`a`的值不能大于`b`。
 
@@ -230,7 +228,7 @@ for index in 1...5 {
 // 5 乘以 5 等于 25
 ```
 
-##### 半闭合运算符 (Half-Open Range Operator)
+### 半闭合运算符 (Half-Open Range Operator)
 
 半闭合运算符(`a..<b`)定义了一个从`a`到`b`的范围，但是不包括`b`，`a`的值不能大于`b`。如果`a`等于`b`，那么这个范围就是空的。
 
@@ -248,7 +246,7 @@ for i in 0..<count {
 // Person 4 是 called Jack
 ```
 
-#### 逻辑运算符 (Logical Operators)
+## 逻辑运算符 (Logical Operators)
 
 Swift支持这三个标准的逻辑运算符：
 
@@ -256,7 +254,7 @@ Swift支持这三个标准的逻辑运算符：
 - 逻辑与 (`a && b`)
 - 逻辑或 (`a || b`)
 
-##### 逻辑非运算符 (Logical NOT Operator)
+### 逻辑非运算符 (Logical NOT Operator)
 
 逻辑非让一个布尔值取反，`true`变为`false`，`false`变为`true`。
 
@@ -268,7 +266,7 @@ if !allowedEntry {
 // Prints "拒绝访问"
 ```
 
-##### 逻辑与运算符 (Logical AND Operator)
+### 逻辑与运算符 (Logical AND Operator)
 
 逻辑与运算符(`a && b`)两边的逻辑语句都为`true`时，整个语句才是`true`。如果有其中一个为`false`，整个语句就为`false`。实际上，只要第一个语句是`false`，第二个语句就不会在计算了，因为第二个语句无论是`true`还是`false`都不可能把最终的结果改为`true`。
 
@@ -283,7 +281,7 @@ if enteredDoorCode && passedRetinaScan {
 // Prints "ACCESS DENIED"
 ```
 
-##### 逻辑或运算符 (Logical OR Operator)
+### 逻辑或运算符 (Logical OR Operator)
 
 逻辑或运算符两边的逻辑语句，只要有一个是`true`，那整个语句就是`true`。如果第一个语句是`true`，第二个就不会再计算。
 
@@ -298,7 +296,7 @@ if hasDoorKey || knowsOverridePassword {
 // Prints "Welcome!"
 ```
 
-##### 组合逻辑运算符 (Combining Logical Operators)
+### 组合逻辑运算符 (Combining Logical Operators)
 
 ```swift
 if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
@@ -311,7 +309,7 @@ if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
 
 在这个例子中，使用多个`&&`和`||`运算符来创建一个更长的复合语句。但是`&&`和`||`运算符还是仅仅操作两个逻辑语句。上面的代码可以这么读：如果我们输入了正确的门密码并且通过了视网膜扫描，或者有门钥匙，或者我们知道紧急覆盖密码，那么就允许进入。
 
-##### 明确的括号 (Explicit Parentheses)
+### 明确的括号 (Explicit Parentheses)
 
 在恰当的位置加上括号，增强代码的易读性：
 

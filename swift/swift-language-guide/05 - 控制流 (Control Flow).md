@@ -1,6 +1,6 @@
-### 控制流 (Control Flow)
+# 控制流 (Control Flow)
 
-#### For-in循环 (For-in Loop)
+## For-in循环 (For-in Loop)
 
 ```swift
 for index in 1...5 {
@@ -51,14 +51,14 @@ for (animal, legCount) in numberOfLegs {
 // cats have 4 legs
 ```
 
-#### While循环 (While Loops)
+## While循环 (While Loops)
 
 Swift提供了两种While循环：
 
 - `while`：执行循环体之前检查循环条件
 - `repeat-while`：执行完循环体之后，再检查循环条件
 
-##### While
+### While
 
 `while`循环的通用形式：
 
@@ -68,7 +68,7 @@ while condiction {
 }
 ```
 
-##### Repeat-While
+### Repeat-While
 
 `repeat-while`循环的通用形式：
 
@@ -78,9 +78,9 @@ repeat {
 } while condition
 ```
 
-#### 条件语句
+## 条件语句
 
-##### If
+### If
 
 ```swift
 temperatureInFahrenheit = 40
@@ -106,7 +106,7 @@ if temperatureInFahrenheit <= 32 {
 // Prints "It's really warm. Don't forget to wear sunscreen."
 ```
 
-##### Switch
+### Switch
 
 ```swift
 let someCharacter: Character = "z"
@@ -148,7 +148,7 @@ default:
 // Prints "The letter A"
 ```
 
-##### 间隔匹配 (Interval Matching)
+### 间隔匹配 (Interval Matching)
 
 ```swift
 let approximateCount = 62
@@ -166,7 +166,7 @@ print("There are \(naturalCount) \(countedThings).")
 // Prints "There are dozens of moons orbiting Saturn."
 ```
 
-#### 多元组 (Tuples)
+## 多元组 (Tuples)
 
 ```swift
 let somePoint = (1, 1)
@@ -189,7 +189,7 @@ default:
 
 实际上`(0, 0)`可以满足这四个情况，然而只有第一个满足`(0, 0)`的情况才会被使用。其他后面的会被忽略。
 
-##### 值绑定 (Value Bindings)
+### 值绑定 (Value Bindings)
 
 ```swift
 let anotherPoint = (2, 0)
@@ -204,7 +204,7 @@ case let (x, y):
 // Prints "on the x-axis with an x value of 2"
 ```
 
-##### Where
+### Where
 
 在`switch`还可以使用`where`分句来添加额外的条件。
 
@@ -221,7 +221,7 @@ case let (x, y):
 // Prints "(1, -1) is on the line x == -y"
 ```
 
-##### 复合情况 (Compound Cases)
+### 复合情况 (Compound Cases)
 
 ```swift
 let someCharacter: Character = "e"
@@ -249,7 +249,7 @@ switch stillAnotherPoint {
 }
 ```
 
-#### 控制转换语句 (Control Transfer Statements)
+## 控制转换语句 (Control Transfer Statements)
 
 控制转换语句可以改变代码的执行顺序。Swift有5个控制转换语句：
 
@@ -259,7 +259,7 @@ switch stillAnotherPoint {
 - return
 - throw
 
-##### Continue
+### Continue
 
 `continue`告诉循环停止正在做的事，然后继续执行下一个遍历：
 
@@ -278,19 +278,19 @@ print(puzzleOutput)
 // Prints "grtmndsthnklk"
 ```
 
-##### Break
+### Break
 
 `break`可以让整个控制流立即停止。
 
-###### 在循环语句中使用Break (Break in Loop Statement)
+#### 在循环语句中使用Break (Break in Loop Statement)
 
 当在循环语句中使用时，`break`停止整个循环，然后跳到循环下面的代码。
 
-###### 在Switch语句中使用Break (Break in Switch Statement)
+#### 在Switch语句中使用Break (Break in Switch Statement)
 
 当在Switch语句中使用时，`break`停止整个Switch语句，然后跳到Switch语句下面的代码。
 
-##### Fallthrough
+### Fallthrough
 
 只要第一个匹配的情况执行完成，整个Swift的Switch语句就会停止。在C语言中，需要在每一个case最后面加上`break`来防止跳到下一个case。如果我们需要C语言风格的往下跳到下一个case的功能，可以使用`fallthrough`。
 
@@ -310,7 +310,7 @@ print(description)
 
 **注意：** `fallthrough`关键字不会检查下一个case的条件是否满足，而是直接执行下一个case的代码。
 
-##### 有标签的语句 (Labeled Statements)
+### 有标签的语句 (Labeled Statements)
 
 在Swift中，我们可以把循环和条件语句嵌套到其他循环和条件语句里面，来实现更复杂的控制流结构。当然，循环和条件语句可以各自使用`break`来提前终止自己的执行。所以，明确的说明想要终止哪一个循环或者条件语句非常重要。
 
@@ -322,7 +322,7 @@ label name: while condition {
 }
 ```
 
-#### 提前退出 (Early Exit)
+## 提前退出 (Early Exit)
 
 `guard`语句就像`if`语句一样，根据一个布尔值来决定是否执行里面的代码。我们可以使用`guard`语句来要求一个条件必须是`true`，然后`guard`语句后面的代码才能被执行。如果条件是`false`，那么会执行`else`分句的代码。
 
@@ -352,7 +352,7 @@ greet(person: ["name": "Jane", "location": "Cupertino"])
 
 使用`guard`语句可以提高代码的可读性，可以使我们避免包装很多个`else`代码块。
 
-#### 检查API的可用性 (Checking API Availability)
+## 检查API的可用性 (Checking API Availability)
 
 ```swift
 if #available(iOS 10, macOS 10.12, *) {

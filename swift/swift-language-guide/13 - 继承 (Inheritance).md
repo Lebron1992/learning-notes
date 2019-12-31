@@ -1,10 +1,10 @@
-### 继承 (Inheritance)
+# 继承 (Inheritance)
 
-#### 定义基类 (Defining a Base Class)
+## 定义基类 (Defining a Base Class)
 
 没有继承其他类的类，叫做基类。
 
-**注意：**Swift的类不用继承一个通用的基类。
+**注意：** Swift的类不用继承一个通用的基类。
 
 下面是定义一个`Vehicle`基类，定义了任意机动车的共同特征：
 
@@ -26,7 +26,7 @@ print("Vehicle: \(someVehicle.description)")
 
 ```
 
-#### 子类化 (Subclassing)
+## 子类化 (Subclassing)
 
 子类继承了父类的特征，子类也可以添加新的特征。
 
@@ -80,11 +80,11 @@ print("Tandem: \(tandem.description)")
 
 `Tandem`继承了`Bicycle`的所有属性和方法，并依次继承了`Vehicle`的所有属性和方法，还另外添加了一个属性`currentNumberOfPassengers`，默认为0。
 
-#### 重写 (Overriding)
+## 重写 (Overriding)
 
 子类可以自定义从父类继承的实例方法、类方法、实例属性、类属性或者下标的实现，称为重写。使用`override`关键字进行重写。
 
-##### 访问父类的方法、属性和下标 (Accessing Superclass Method, Properties and Subscripts)
+### 访问父类的方法、属性和下标 (Accessing Superclass Method, Properties and Subscripts)
 
 当重写父类的方法、属性或者下标时，把已经存在的父类实现作为重写的一部分是非常有用的。
 
@@ -94,7 +94,7 @@ print("Tandem: \(tandem.description)")
 - 子类的`someProperty`属性可以通过`super.someProperty`来访问父类的`someProperty`属性。
 - 子类的`someIndex`下标可以通过`super[someIndex]`来访问父类的同一个下标实现。
 
-##### 重写方法 (Overriding Methods)
+### 重写方法 (Overriding Methods)
 
 创建`Vehicle`的一个子类`Train`，并重写`makeNoise()`方法：
 
@@ -114,17 +114,17 @@ train.makeNoise()
 // Prints "Choo Choo"
 ```
 
-##### 重写属性 (Overriding Properties)
+### 重写属性 (Overriding Properties)
 
 我们可以重写通过继承得到的实例属性和类属性，或者添加属性观察者来监测属性值的变化。
 
-##### 重写属性的getter和setter方法 (Overriding Property Getters and Setters)
+### 重写属性的getter和setter方法 (Overriding Property Getters and Setters)
 
 子类是不知道通过继承得到的存储属性和计算属性的本质，他只知道这些属性的名字和类型。
 
 我们可以把继承得到的只读属性重写为可读可写属性，但是不能把继承得到的可读可写属性重写范围只读属性。
 
-**注意：**如果在重写属性时，提供了setter方法，我们必须也提供一个getter方法。在重写getter方法时，如果不想改变继承得到的属性值，我们可以在getter方法中返回`super.someProperty`，`someProperty`是正在重写的属性名字。
+**注意：** 如果在重写属性时，提供了setter方法，我们必须也提供一个getter方法。在重写getter方法时，如果不想改变继承得到的属性值，我们可以在getter方法中返回`super.someProperty`，`someProperty`是正在重写的属性名字。
 
 ```swift
 class Car: Vehicle {
@@ -135,11 +135,11 @@ class Car: Vehicle {
 }
 ```
 
-##### 重写属性观察者 (Overriding Property Observers)
+### 重写属性观察者 (Overriding Property Observers)
 
 我们可以使用属性重写来把属性观察者添加到继承得到的属性中。当继承得到的属性值发生改变时，我们可以做出响应。
 
-**注意：**不能把属性观察者添加到继承得到的常量存储属性或者只读计算属性。因为这些属性不能被设置新的值，所有不能使用`willSet`和`didSet`观察者。另外，也不能在重写属性时同时重写setter方法和属性观察者。如果要监测属性值的变化，可以在自定义的setter方法监测。
+**注意：** 不能把属性观察者添加到继承得到的常量存储属性或者只读计算属性。因为这些属性不能被设置新的值，所有不能使用`willSet`和`didSet`观察者。另外，也不能在重写属性时同时重写setter方法和属性观察者。如果要监测属性值的变化，可以在自定义的setter方法监测。
 
 ```swift
 class AutomaticCar: Car {
@@ -158,7 +158,7 @@ print("AutomaticCar: \(automatic.description)")
 
 当设置`currentSpeed`属性时，`didSet`观察者内部给`gear`设置了一个新的值。
 
-#### 防止重写 (Preventing Overrides)
+## 防止重写 (Preventing Overrides)
 
 我们可以在定义方法、属性或者下标时，在最前面加上`final`关键字来阻止子类重写(例如`final var`、`final func`、`final class func`、`final subscript`)。
 

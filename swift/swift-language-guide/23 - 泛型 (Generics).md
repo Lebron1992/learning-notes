@@ -1,10 +1,10 @@
-### 【Swift 3.1】23 - 泛型 (Generics)
+# 23 - 泛型 (Generics)
 
 泛型代码能让我们编写灵活、可重复使用的方法和类型。可以避免编写重复代码，并以清晰和抽象的方法表达其目的。
 
 泛型是Swift非常强大的一个特性，并且很多Swift标准库都是用泛型编写的。实际上我们已经使用过泛型，例如Swift的`Array`和`Dictionary`都是泛型集合。
 
-#### 泛型能解决的问题 (The Problem That Generics Solve)
+## 泛型能解决的问题 (The Problem That Generics Solve)
 
 下面这个方法只能交换两个`Int`值，使用in-out参数来交换`a`和`b`：
 
@@ -34,7 +34,7 @@ func swapTwoDoubles(_ a: inout Double, _ b: inout Double) {
 
 使用泛型代码让我们用一个方法就能解决上面的问题。
 
-#### 泛型方法 (Generic Functions)
+## 泛型方法 (Generic Functions)
 
 上面的三个方法可以用下面的额泛型方法代替：
 
@@ -66,9 +66,9 @@ swapTwoValues(&someString, &anotherString)
 // someString is now "world", and anotherString is now "hello"
 ```
 
-**注意：**其实Swift的标准库中已经有一个功能与`swapTwoValues(_:_:)`一样的方法`swap`。如果我们需要交换两个值，直接使用`swap`即可，无需自己另外实现这个功能。
+**注意：** 其实Swift的标准库中已经有一个功能与`swapTwoValues(_:_:)`一样的方法`swap`。如果我们需要交换两个值，直接使用`swap`即可，无需自己另外实现这个功能。
 
-#### 类型参数 (Type Parameters)
+## 类型参数 (Type Parameters)
 
 上面的泛型方法`swapTwoValues(_:_:)`，占位类型`T`其实是一个类型参数。类型参数指定并命名占位类型，紧跟在方法名后面，用`<T>`表示。
 
@@ -76,19 +76,19 @@ swapTwoValues(&someString, &anotherString)
 
 我们可以定义多个类型参数，写法是：`<T1, T2, ...>`。
 
-#### 类型参数命名 (Type Parameters)
+## 类型参数命名 (Type Parameters)
 
 在很多情况下，类型参数有描述性的名称，例如`Dictionary<Key, Value>`中的`Key`和`Value`，`Array<Element>`中的`Element`，这些名字都能告诉读者类型参数和泛型的关系。但是，在没有任何意义的情况下，我们一般把类型参数名命名为`T`、`U`和`V`。
 
-**注意：**需要使用骆驼命名法给类型参数命名，例如`T`和`MyTypeParameter`，以表示他们是一个类型的占位。
+**注意：** 需要使用骆驼命名法给类型参数命名，例如`T`和`MyTypeParameter`，以表示他们是一个类型的占位。
 
-#### 泛型类型 (Generic Types)
+## 泛型类型 (Generic Types)
 
 除了泛型方法，Swift还可以定义泛型类型，例如`Array`和`Dictionary`。
 
 这一部分将演示如何写一个泛型集合`Stack`。一个栈是一个有序的值的集合，类似一个数组，但是比数组有更严格的运算。	数组可以在特定的位置移除或插入元素。而栈只允许在集合的最后添加元素，也只允许从最后面移除元素。
 
-**注意：**栈的概念就被用于`UINavigationController`管理控制器。使用`pushViewController(_:animated:)`来添加新的控制器到栈中，用`popViewControllerAnimated(_:)`移除控制器。栈非常适合用来管理“后进先去”的集合。
+**注意：** 栈的概念就被用于`UINavigationController`管理控制器。使用`pushViewController(_:animated:)`来添加新的控制器到栈中，用`popViewControllerAnimated(_:)`移除控制器。栈非常适合用来管理“后进先去”的集合。
 
 下图演示了栈的push/pop：
 
@@ -164,7 +164,7 @@ let fromTheTop = stackOfStrings.pop()
 
 ![pop](http://upload-images.jianshu.io/upload_images/2057254-b76a505841dc16df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#### 扩展泛型类型 (Extending a Generic Type)
+## 扩展泛型类型 (Extending a Generic Type)
 
 在扩展泛型类型是，我们不必提供类型参数，可以直接使用已有泛型类型的类型参数。
 
@@ -189,13 +189,13 @@ if let topItem = stackOfStrings.topItem {
 
 泛型类型的扩展也可以指定一些限定条件，满足这些条件才可以访问扩展里面的成员，下面会讲到。
 
-#### 类型约束 (Type Constraints)
+## 类型约束 (Type Constraints)
 
 `swapTwoValues(_:_:)`和`Stack`可以用于任何类型。然而，在某些类型上添加一些类型约束是非常有用的。类型约束指定一个类型参数必须继承于特定的类或者遵循特定的协议。
 
 例如，Swift的`Dictionary`限定了键的类型。字典的键必须是*hashable*的，也就是说，必须提供一个方法保证它自己是唯一的，然后字典才能根据这个键去查找对应的值。Swift的基本类型默认都是`hashable`的，例如`String`、`Int`、`Double`和`Bool`。
 
-##### 类型约束语法 (Type Constraint Syntax)
+### 类型约束语法 (Type Constraint Syntax)
 
 语法如下：
 
@@ -207,7 +207,7 @@ func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
 
 上面的语法要求`T`必须是`SomeClass`的子类，`U`必须遵循`SomeProtocol`协议。
 
-##### 类型约束实践 (Type Constraint in Action)
+### 类型约束实践 (Type Constraint in Action)
 
 下面是一个不通用的`findIndex(ofString:in:)`，用于查找指定字符串在字符串数组的索引：
 
@@ -269,11 +269,11 @@ let stringIndex = findIndex(of: "Andrea", in: ["Mike", "Malcolm", "Andrea"])
 // stringIndex is an optional Int containing a value of 2
 ```
 
-#### 关联类型 (Associated Types)
+## 关联类型 (Associated Types)
 
 当定义协议时，定义一个或多个关联类型有时候是非常有用的。关联类型提供了一个类型名字，然后这个类型可以在协议中使用。使用`associatedtype`关键字来定义关联类型。
 
-##### 关联类型实践 (Associated Types in Action)
+### 关联类型实践 (Associated Types in Action)
 
 下面是一个例子：
 
@@ -344,7 +344,7 @@ struct Stack<Element>: Container {
 }
 ```
 
-##### 通过扩展类型来指定关联类型 (Extending an Existing Type to Specifying an Associated Type)
+### 通过扩展类型来指定关联类型 (Extending an Existing Type to Specifying an Associated Type)
 
 我们可以使用扩展来遵循某一个协议，当然这个协议也可以是由关联类型的协议。
 
@@ -356,7 +356,7 @@ extension Array: Container {}
 
 我们就可以把`Array`当做是一个`Container`。
 
-#### 泛型的Where语句 (Generic Where Clauses)
+## 泛型的Where语句 (Generic Where Clauses)
 
 泛型的`where`语句可以让我们要求关联类型遵循一个特定的协议，或者关联类型和类型参数必须相同。
 
@@ -397,7 +397,7 @@ if allItemsMatch(stackOfStrings, arrayOfStrings) {
 
 虽然`Array`和`Stack`是不同的类型，但是他们都遵循`Container`协议，并且都包含相同类型的值。
 
-#### 有泛型Where语句的扩展 (Extensions with a Generic Where Clause)
+## 有泛型Where语句的扩展 (Extensions with a Generic Where Clause)
 
 例如下面这个例子：
 

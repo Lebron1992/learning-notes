@@ -1,6 +1,6 @@
-### 方法 (Functions)
+# 方法 (Functions)
 
-#### 声明和调用方法 (Defining and Calling Functions)
+## 声明和调用方法 (Defining and Calling Functions)
 
 ```swift
 func greet(person: String) -> String {
@@ -11,9 +11,9 @@ func greet(person: String) -> String {
 
 使用`func`来声明方法，`greet`是方法名，`person`是参数名（也是标签名），`String`是参数类型，`->`来指定返回值类型。
 
-#### 方法的参数和返回值 (Function Parameters and Return Values)
+## 方法的参数和返回值 (Function Parameters and Return Values)
 
-##### 无参数的方法 (Functions Without Prameters)
+### 无参数的方法 (Functions Without Prameters)
 
 ```swift
 func sayHelloWorld() -> String {
@@ -23,7 +23,7 @@ print(sayHelloWorld())
 // Prints "hello, world"
 ```
 
-##### 有多个参数的方法 (Function With Multiple Parameters)
+### 有多个参数的方法 (Function With Multiple Parameters)
 
 ```swift
 func greet(person: String, alreadyGreeted: Bool) -> String {
@@ -37,7 +37,7 @@ print(greet(person: "Tim", alreadyGreeted: true))
 // Prints "Hello again, Tim!"
 ```
 
-##### 无返回值的方法 (Functions Without Return Values)
+### 无返回值的方法 (Functions Without Return Values)
 
 ```swift
 func greet(person: String) {
@@ -49,7 +49,7 @@ greet(person: "Dave")
 
 因为参数没有返回值，所以方法的定义不包含`->`和返回类型。
 
-**注意：**严格地说，这个方法还是有一个返回值，即使没有定义返回类型。没有定义返回值的方法返回一个`Void`类型的值，这个返回值是一个空多元组`()`。
+**注意：** 严格地说，这个方法还是有一个返回值，即使没有定义返回类型。没有定义返回值的方法返回一个`Void`类型的值，这个返回值是一个空多元组`()`。
 
 方法被调用之后，返回值可以忽略：
 
@@ -67,7 +67,7 @@ printWithoutCounting(string: "hello, world")
 // prints "hello, world" but does not return a value
 ```
 
-##### 返回多个值的方法 (Functions with Multiple Return Values)
+### 返回多个值的方法 (Functions with Multiple Return Values)
 
 使用多元组作为返回值，来返回多个值：
 
@@ -93,14 +93,14 @@ print("min is (bounds.min), and max is \(bounds.max)")
 
 再返回多元组的时候，不用再给元素命名，因为方法的返回值已经命名。
 
-##### 可选多元组返回类型 (Optional Tuple Return Types)
+### 可选多元组返回类型 (Optional Tuple Return Types)
 
 如果方法返回的多元组有可能没有值，我们在定义方法返回值时可以使用可选类型，例如`(Int, Int)?`和`(String, Int, Bool)?`。
 
-**注意：**`(Int, Int)?`多元组可选类型不同于包含可选类型元素的多元组`(Int?, Int?)`。`(Int, Int)?`多元组是可选类型，而`(Int?, Int?)`其中的元素才是可选了类型。
+**注意：** `(Int, Int)?`多元组可选类型不同于包含可选类型元素的多元组`(Int?, Int?)`。`(Int, Int)?`多元组是可选类型，而`(Int?, Int?)`其中的元素才是可选了类型。
 
 
-#### 方法参数标签和参数名 (Function Argument Labels and Parameter Names)
+## 方法参数标签和参数名 (Function Argument Labels and Parameter Names)
 
 每个方法的参数都有一个参数标签和参数名。参数标签使你在调用方法的时候使用，参数名实在方法实现里调用。默认情况下，参数表前和参数名是相同的。
 
@@ -114,7 +114,7 @@ someFunction(firstParameterName: 1, secondParameterName: 2)
 
 所有的参数名必须是唯一的，参数标签有可能相同。但是为了提高代码的可读性，参数标签唯一可以提高代码的可读性。
 
-##### 指定参数标签 (Specifying Argument Labels)
+### 指定参数标签 (Specifying Argument Labels)
 
 把参数标签写在参数名前面：
 
@@ -137,7 +137,7 @@ print(greet(person: "Bill", from: "Cupertino"))
 
 使用参数标签，调用方法就像调用一个句子一样，非常清晰，可读性非常高。
 
-##### 删除参数标签 (Omitting Argument Labels)
+### 删除参数标签 (Omitting Argument Labels)
 
 如果我们不需要参数标签，使用`_`来代替参数标签：
 
@@ -151,7 +151,7 @@ someFunction(1, secondParameterName: 2)
 
 如果一个参数有标签，在调用方法时必须写标签。
 
-##### 参数默认值 (Default Parameter Values)
+### 参数默认值 (Default Parameter Values)
 
 在声明方法时，可以给参数一个默认值：
 
@@ -164,7 +164,7 @@ someFunction(parameterWithoutDefault: 3, parameterWithDefault: 6) // parameterWi
 someFunction(parameterWithoutDefault: 4) // parameterWithDefault is 12
 ```
 
-##### 可变参数 (Variadic Parameters)
+### 可变参数 (Variadic Parameters)
 
 一个可变参数可以接受0个或多个指定类型的值。使用可变参数来指定这个参数在方法调用时可以被传入多个值，
 传入方法的多个值在方法体中会作为一个数组。：
@@ -183,9 +183,9 @@ arithmeticMean(3, 8.25, 18.75)
 // returns 10.0, which is the arithmetic mean of these three numbers
 ```
 
-**注意：**一个方法最多只能有一个可变参数。
+**注意：** 一个方法最多只能有一个可变参数。
 
-##### In-Out 参数 (In-Ont Parameters)
+### In-Out 参数 (In-Ont Parameters)
 
 方法的参数默认情况下是属于常量，在方法中是不能改为参数值的。如果我们想在一个方法中改变参数的值，并且在方法执行完之后保持改变，应该把参数定义为*in-out*参数。
 
@@ -205,7 +205,7 @@ print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
 // Prints "someInt is now 107, and anotherInt is now 3"
 ```
 
-#### 方法类型 (Function Types)
+## 方法类型 (Function Types)
 
 每个方法都有一个特定的方法类型，并且由参数类型和返回值类型组成。
 
@@ -230,7 +230,7 @@ func printHelloWorld() {
 
 这个方法的类型是`() -> Void`。
 
-##### 使用方法类型 (Using Function Types)
+### 使用方法类型 (Using Function Types)
 
 ```swift
 var mathFunction: (Int, Int) -> Int = addTwoInts
@@ -253,7 +253,7 @@ print("Result: \(mathFunction(2, 3))")
 // Prints "Result: 6"
 ```
 
-##### 方法类型作为参数类型 (Function Types as Parameter Types)
+### 方法类型作为参数类型 (Function Types as Parameter Types)
 
 我们可以使用方法类型作为参数类型。例如：
 
@@ -265,7 +265,7 @@ printMathResult(addTwoInts, 3, 5)
 // Prints "Result: 8"
 ```
 
-##### 方法类型作为返回值类型 (Function Types as Return Types)
+### 方法类型作为返回值类型 (Function Types as Return Types)
 
 ```swift
 func stepForward(_ input: Int) -> Int {
@@ -303,7 +303,7 @@ print("zero!")
 // zero!
 ```
 
-#### 嵌套方法 (Nested Functions)
+## 嵌套方法 (Nested Functions)
 
 目前所接触到的所有方法都是在全局区域定义的全局方法。其实我们还可以在一个方法内部定义其他方法。嵌套的方法默认情况下，外面是访问不到的，只有包含这个嵌套方法的方法内部才可访问。但是包含嵌套方法的方法可以把其嵌套方法作为返回值供外面使用，所以上面的`chooseStepFunction(backward:)`可以改写为：
 

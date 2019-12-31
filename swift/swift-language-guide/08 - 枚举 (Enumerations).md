@@ -1,6 +1,6 @@
-### 枚举 (Enumerations)
+# 枚举 (Enumerations)
 
-#### 枚举语法 (Enumeration Syntax)
+## 枚举语法 (Enumeration Syntax)
 
 ```swift
 enum CompassPoint {
@@ -11,7 +11,7 @@ enum CompassPoint {
 }
 ```
 
-**注意：**不同于C和OC，Swift枚举的每一种情况不用给一个默认整数值。在上面的这个例子中，`north`、`south`、`east`和`west`不会隐式地等于`0`、`1`、`2`和`3`。
+**注意：** 不同于C和OC，Swift枚举的每一种情况不用给一个默认整数值。在上面的这个例子中，`north`、`south`、`east`和`west`不会隐式地等于`0`、`1`、`2`和`3`。
 
 多个情况可以写在一行：
 
@@ -33,7 +33,7 @@ var directionToHead = CompassPoint.west
 directionToHead = .east
 ```
 
-#### 使用Switch语句来匹配枚举值 (Matching Enumeration Values with a Switch Statement)
+## 使用Switch语句来匹配枚举值 (Matching Enumeration Values with a Switch Statement)
 
 ```swift
 directionToHead = .south
@@ -50,7 +50,7 @@ case .west:
 // Prints "Watch out for penguins"
 ```
 
-#### 关联值 (Associated Values)
+## 关联值 (Associated Values)
 
 可以使用Swift的枚举来存储任何类型的关联值，而且每种情况的关联值可以不一样。
 
@@ -102,7 +102,7 @@ switch productBarcode {
 // Prints "QR code: ABCDEFGHIJKLMNOP."
 ```
 
-#### 原始值 (Raw Values)
+## 原始值 (Raw Values)
 
 与关联值类似的，枚举的每一种情况还可以有默认值(被称为*原始值*)，并且每个默认值的类型相同。
 
@@ -118,9 +118,9 @@ enum ASCIIControlCharacter: Character {
 
 **原始值可以是字符串、字符或者是整数和浮点型。在枚举中，每一个原始值必须是唯一的。**
 
-**注意：**原始值和关联值是不一样的。原始值是在第一次定义枚举时预先设置的值，一个特定情况的原始值总是相同的。关联值是在基于枚举情况创建常量或变量的时候设置的，而且可以是不同的。
+**注意：** 原始值和关联值是不一样的。原始值是在第一次定义枚举时预先设置的值，一个特定情况的原始值总是相同的。关联值是在基于枚举情况创建常量或变量的时候设置的，而且可以是不同的。
 
-##### 隐式地给原始值赋值 (Implicitly Assigned Raw Values)
+### 隐式地给原始值赋值 (Implicitly Assigned Raw Values)
 
 当枚举存储的原始值是`Integer`或者`String`类型时，我们不必明确地给每一种情设置原始值。
 
@@ -150,7 +150,7 @@ let sunsetDirection = CompassPoint.west.rawValue
 // sunsetDirectionis "west"
 ```
 
-##### 使用原始值初始化 (Initializing from a Raw Value)
+### 使用原始值初始化 (Initializing from a Raw Value)
 
 如果定义了一个有原始值类型的枚举，那么这个枚举将会自动拥有一个构造函数，这个构造函数有一个参数类型与原始值类型相同的参数，并返回枚举的一个情况或者`nil`。
 
@@ -176,7 +176,7 @@ if let somePlanet = Planet(rawValue: positionToFind) {
 // Prints "There isn't a planet at position 11"
 ```
 
-#### 递归枚举 (Recursive Enumerations)
+## 递归枚举 (Recursive Enumerations)
 
 一个枚举使用这个枚举的实例作为关联值，那么这个枚举就被称为递归枚举。在使用了枚举实例作为关联值的情况前面加上`indirect`关键字，来表明这个枚举情况是递归的。
 

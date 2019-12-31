@@ -1,8 +1,8 @@
-### 反初始化 (Deinitialization)
+# 反初始化 (Deinitialization)
 
 反初始化器在一个类的实例被释放之前调用。反初始化器只适用于class类型。
 
-#### 反初始化器如果工作 (How Deinitialization Works)
+## 反初始化器如果工作 (How Deinitialization Works)
 
 当一个类的实例不再需要的时候，Swift会自动释放。Swift是通过自动引用计数(automatic reference counting，简称ARC)来管理内存的，不需要手动管理。然后，在默写情况下是需要自己去释放资源的。例如，如果我们创建了一个自定义的类去打开一个文件或者把数据写入到文件，我们必须在这个类的实例被释放之前手动关闭文件。
 
@@ -18,7 +18,7 @@ deinit {
 
 因为在反初始化器被调用之前，实例还没有被释放，所以在反初始化器里面可以访问所有实例属性，并用这些属性来执行一些相关的代码。
 
-#### 反初始化器实践 (Deinitializers in Action)
+## 反初始化器实践 (Deinitializers in Action)
 
 创建`Bank`和`Player`两个类：
 
