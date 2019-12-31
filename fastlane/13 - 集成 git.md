@@ -8,12 +8,12 @@ Fastlane 很好地支持了 git。与 git 相关的 action：[Source-Control - f
 lane :build_appstore do
     # 集成 git
     ensure_git_status_clean # 保证没有未提交的代码
-    ensure_git_branch(branch: “master”) # 保证在 master 分支
+    ensure_git_branch(branch: "master") # 保证在 master 分支
     git_pull # 更新到最新的代码
 	  increment_build_number
     gym(
-      output_directory: “build_Appstore”,
-      export_method: “app-store”
+      output_directory: "build_Appstore",
+      export_method: "app-store"
     )
     commit_version_bump( # 提交 increment_build_number 修改的代码
       force: true,

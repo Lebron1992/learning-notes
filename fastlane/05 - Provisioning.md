@@ -16,7 +16,7 @@ lane :sanbox do
   sigh(
     username: "lebron@test.com",
     team_name: "Lebron Team",
-    app_identifier: "com.lebron.iosapp”,
+    app_identifier: "com.lebron.iosapp",
 	  development: true
   )
 end

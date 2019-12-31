@@ -11,7 +11,7 @@ Fastlane 是 2014 年开源的，我们可以在 GitHub 中找到它，[GitHub -
 ### 安装 command line developer tools
 
 执行 `xcode-select --install` 命令：
-	- 如果提示 `xcode-select: error: command line tools are already installed, use “Software Update” to install updates`，说明已经安装好；
+	- 如果提示 `xcode-select: error: command line tools are already installed, use "Software Update" to install updates`，说明已经安装好；
 	- 否则会弹出一个窗口，点击 install 来安装。
 
 安装好之后，执行 `xcode-select --print-path` 查看 command line 的路径，如果存在，说明安装好了。
@@ -24,7 +24,7 @@ Fastlane 是 2014 年开源的，我们可以在 GitHub 中找到它，[GitHub -
 
 目前的 mac 电脑都应该自带了 ruby，我们可以执行 `ruby -v` 检查一下：
 	- 如果版本号大于 `2.3.7`，那就可以了；
-	- 否则执行 `brew install ruby` 来安装 ruby，ruby 安装好之后，要把刚刚安装好的 ruby 的路径指定到 shell 的配置文件，shell 的配置文件的路径可能是 `.profile` 和 `.bash_profile`，或者是其他；在配置文件中加上 `export PATH = "usr/local/opt/rby/bin:$PATH”`并且保存。 
+	- 否则执行 `brew install ruby` 来安装 ruby，ruby 安装好之后，要把刚刚安装好的 ruby 的路径指定到 shell 的配置文件，shell 的配置文件的路径可能是 `.profile` 和 `.bash_profile`，或者是其他；在配置文件中加上 `export PATH = "usr/local/opt/rby/bin:$PATH"`并且保存。 
 
 最后执行 `gem install bundler` 完成 ruby 的安装。
 

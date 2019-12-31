@@ -15,7 +15,7 @@ platform :iOS do
   end
 
   lane :second do
-    build_app(scheme: “myAmazingApp”)
+    build_app(scheme: "myAmazingApp")
     upload_to_testflight
   end
 
