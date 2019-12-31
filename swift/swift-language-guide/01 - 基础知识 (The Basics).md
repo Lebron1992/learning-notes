@@ -16,7 +16,7 @@ var currentLoginAttemps = 0
 ```swift
 var x = 0.0, y = 0.0, z = 0.0
 ```
-**注意：**如果在代码中，你存储的一个值永远不会变，请一定使用let来声明；后续需要改变的值用var声明。
+**注意：** 如果在代码中，你存储的一个值永远不会变，请一定使用let来声明；后续需要改变的值用var声明。
 
 ##### 类型注释 (Type Annotations)
 
@@ -80,7 +80,7 @@ print("\(welcomeMessage), Lebron James!")
  but is written over multiple lines. */
 ```
 
-#####　内嵌多行注释
+##### 内嵌多行注释
 
 ```swift
 /* This is the start of the first multiline comment.
@@ -368,7 +368,7 @@ serverResponseCode = nil
 // serverResponseCode now contains no value
 ```
 
-**注意：**`nil`不能赋值给非可选类型的常量和变量。所以如果在代码中，如果变量有可能为`nil`，尽量声明为可选类型。
+**注意：** `nil`不能赋值给非可选类型的常量和变量。所以如果在代码中，如果变量有可能为`nil`，尽量声明为可选类型。
 
 如果在声明可选类型变量的时候，没有给一个默认值，那么这个变量默认为`nil`：
 
@@ -398,7 +398,7 @@ if convertedNumber != nil {
 // Prints "convertedNumber has an integer value of 123."
 ```
 
-**注意：**在使用`!`解包时，一定要保证可选类型的变量有值，不能为`nil`，否则在运行的时候会报错。
+**注意：** 在使用`!`解包时，一定要保证可选类型的变量有值，不能为`nil`，否则在运行的时候会报错。
 
 ##### 可选绑定 (Optional Binding)
 
@@ -464,7 +464,7 @@ let assumedString: String! = "一个隐式解包可选类型的字符串"
 let implicitString: String = assumedString // 无需感叹号解包
 ```
 
-**注意：**如果一个隐式解包可选类型是`nil`，然后你访问他的解包后的值，将会在运行的时候报错。
+**注意：** 如果一个隐式解包可选类型是`nil`，然后你访问他的解包后的值，将会在运行的时候报错。
 
 像正常的可选类型一样，你可以使用if检查是否有值：
 
@@ -484,7 +484,7 @@ if let definiteString = assumedString {
 // Prints "An implicitly unwrapped optional string."
 ```
 
-**注意：**当一个变量有可能为`nil`时，千万不要使用隐式解包可选绑定。
+**注意：** 当一个变量有可能为`nil`时，千万不要使用隐式解包可选绑定。
 
 #### 错误处理 (Error Handling)
 
