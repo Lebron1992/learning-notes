@@ -109,12 +109,15 @@ D.new.twisted_method     # => "@x: 1, @y: 2"
 
 ## 7. Proc Objects
 
-	- Proc
+- Proc
+
 ```ruby
 inc = Pro.new { |x| x + 1 }
 inc.call(2)   # => 3
 ```
-	- lambda
+
+- lambda
+
 ```ruby
 dec = lambda { |x| x - 1 }
 dec.class     # => Proc
