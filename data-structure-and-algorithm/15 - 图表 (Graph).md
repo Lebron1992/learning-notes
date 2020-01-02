@@ -70,7 +70,7 @@ struct Edge<T> {
 
 图的实现方式有两种：**邻接表**和**邻接矩阵**。在用邻接表和邻接矩阵实现图之前，我们先创建一个 `Graph` 协议，然后在实现的时候遵循这个协议。
 
-```
+```swift
 enum EdgeType {
     case directed
     case undirected
