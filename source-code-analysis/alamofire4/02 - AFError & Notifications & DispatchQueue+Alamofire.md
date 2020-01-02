@@ -38,7 +38,7 @@ public enum AFError: Error {
 
 这个`AdapterError`是专门为`RequestAdapter`服务的。
 
-这里先简单介绍下`RequestAdapter`：`RequestAdapter`是个协议，我们可以自定义一个请求适配器，并且遵循这个协议。通过我们自定义的适配器，我们在发送请求的时候可以默认添加一些请求相关的数据，具体请查看：[【Alamofire源码解析】08 - Request](http://www.jianshu.com/p/e1d1331128ae)。
+这里先简单介绍下`RequestAdapter`：`RequestAdapter`是个协议，我们可以自定义一个请求适配器，并且遵循这个协议。通过我们自定义的适配器，我们在发送请求的时候可以默认添加一些请求相关的数据，具体请查看：[08 - Request](https://github.com/Lebron1992/learning-notes/blob/master/source-code-analysis/alamofire4/08%20-%20Request.md)。
 
 `AdapterError`就是在请求适配过程中可能出现的错误的结构类型。在`Error`的extension中定义的`underlyingAdaptError`就是适配过程中可能出现的错误。
 
