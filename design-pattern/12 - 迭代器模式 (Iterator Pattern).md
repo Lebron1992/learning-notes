@@ -60,7 +60,7 @@ extension Queue: Sequence {
 
 #### 使用
 
-```
+```swift
 struct Person {
     let name: String
 }
