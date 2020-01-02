@@ -49,7 +49,7 @@ extension RandomAccessCollection where Element: Comparable {
 
 测试如下：
 
-```
+```swift
 let array = [0, 9, 13, 20, 21, 25, 35, 120, 250]
 
 let indexOf = array.index(of: 20)
