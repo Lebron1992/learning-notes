@@ -20,7 +20,7 @@
 
 这里，我们把封装如何开门的类命名为 `DoorCommand`；Receiver 命名为`Door`：
 
-```
+```swift
 final class Door {
     var isOpen = false
 }
