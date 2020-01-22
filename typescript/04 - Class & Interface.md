@@ -25,7 +25,7 @@ class User {
 使用 `new` 关键字：
 
 ```typescript
-const lebron = new User("Lebron", "James");
+const lebron = new User('Lebron', 'James');
 ```
 
 ### 定义函数
@@ -118,7 +118,7 @@ class Department {
 ```typescript
 class ITDepartment extends Department {
   constructor(id: string, public readonly admins: string[]) {
-    super(id, "IT");
+    super(id, 'IT');
     this.admins = admins;
   }
 }
@@ -149,13 +149,13 @@ class ITDepartment extends Department {
   }
 
   constructor(id: string, public readonly admins: string[]) {
-    super(id, "IT");
+    super(id, 'IT');
     this.admins = admins;
   }
 }
 
-let department = new ITDepartment("1", []);
-department.latestTodoItem = "release app to App Store";
+let department = new ITDepartment('1', []);
+department.latestTodoItem = 'release app to App Store';
 console.log(department.latestTodoItem);
 ```
 
@@ -172,7 +172,7 @@ class Department {
   }
 }
 
-Department.createEmployee("Lebron");
+Department.createEmployee('Lebron');
 console.log(Department.fisicalYear);
 ```
 
@@ -218,12 +218,12 @@ class ITDepartment extends Department {
     if (this.instance) {
       return this.instance;
     }
-    this.instance = new ITDepartment("1", []);
+    this.instance = new ITDepartment('1', []);
     return this.instance;
   }
 
   private constructor(id: string, public readonly admins: string[]) {
-    super(id, "IT");
+    super(id, 'IT');
     this.admins = admins;
   }
 }
@@ -329,4 +329,4 @@ class Person implements Greetable {
 
 ### 更多 Interface 相关信息
 
-- ![Interfaces](https://www.typescriptlang.org/docs/handbook/interfaces.html)
+- [Interfaces](https://www.typescriptlang.org/docs/handbook/interfaces.html)

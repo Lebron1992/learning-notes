@@ -2,9 +2,9 @@
 
 ## JavaScript 库
 
-在 TypeScript 中使用 JavaScript 库，例如 ![lodash](https://lodash.com/)，如果直接 import 会报错：`import _ from 'lodash';`。实际上代码是可以运行的，但是在 TypeScript 中会报错。
+在 TypeScript 中使用 JavaScript 库，例如 [lodash](https://lodash.com/)，如果直接 import 会报错：`import _ from 'lodash';`。实际上代码是可以运行的，但是在 TypeScript 中会报错。
 
-安装 ![@types/lodash](https://www.npmjs.com/package/@types/lodash) 之后，就不会报错：`npm install --save-dev @types/lodash`。
+安装 [@types/lodash](https://www.npmjs.com/package/@types/lodash) 之后，就不会报错：`npm install --save-dev @types/lodash`。
 
 其他流行的第三方库，也会有对应的库 `@types/xxx`，可以在 Google 搜索 `xxx types` 就能找到。
 

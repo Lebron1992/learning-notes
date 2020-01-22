@@ -48,6 +48,6 @@
 
 ## 更多编译设置
 
-- ![tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+- [tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 
-- ![Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+- [Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
