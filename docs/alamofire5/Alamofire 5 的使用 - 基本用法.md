@@ -1,3 +1,59 @@
+- [Alamofire 5 的使用 - 基本用法](#alamofire-5-的使用---基本用法)
+  - [特性](#特性)
+  - [组件库](#组件库)
+  - [要求的使用环境](#要求的使用环境)
+  - [安装方法](#安装方法)
+  - [CocoaPods](#cocoapods)
+  - [基本用法](#基本用法)
+    - [介绍](#介绍)
+      - [另外：`AF` 命名空间和引用](#另外af-命名空间和引用)
+    - [发起请求](#发起请求)
+      - [HTTP Methods](#http-methods)
+      - [请求参数和参数编码器](#请求参数和参数编码器)
+        - [`URLEncodedFormParameterEncoder`](#urlencodedformparameterencoder)
+          - [使用 URL 编码参数的 GET 请求](#使用-url-编码参数的-get-请求)
+          - [使用 URL 编码参数的 POST 请求](#使用-url-编码参数的-post-请求)
+          - [配置已编码参数的排序](#配置已编码参数的排序)
+          - [配置 `Array` 参数的编码](#配置-array-参数的编码)
+          - [配置 `Bool` 参数的编码](#配置-bool-参数的编码)
+          - [配置 `Data` 参数的编码](#配置-data-参数的编码)
+          - [配置 `Date` 参数的编码](#配置-date-参数的编码)
+          - [配置 Coding Keys 的编码](#配置-coding-keys-的编码)
+          - [配置空格的编码](#配置空格的编码)
+        - [`JSONParameterEncoder`](#jsonparameterencoder)
+          - [JSON 编码参数的 POST 请求](#json-编码参数的-post-请求)
+          - [自定义 `JSONEncoder`](#自定义-jsonencoder)
+          - [手动对 `URLRequest` 进行参数编码](#手动对-urlrequest-进行参数编码)
+      - [HTTP Headers](#http-headers)
+      - [响应验证](#响应验证)
+        - [自动验证](#自动验证)
+        - [手动验证](#手动验证)
+      - [响应处理](#响应处理)
+        - [响应 Handler](#响应-handler)
+        - [响应 Data Handler](#响应-data-handler)
+        - [响应 String Handler](#响应-string-handler)
+        - [响应 JSON Handler](#响应-json-handler)
+        - [响应 `Decodable` Handler](#响应-decodable-handler)
+        - [链式响应 handlers](#链式响应-handlers)
+        - [响应 Handler 队列](#响应-handler-队列)
+      - [响应缓存](#响应缓存)
+      - [身份验证](#身份验证)
+        - [HTTP Basic 身份验证](#http-basic-身份验证)
+        - [使用 `URLCredential` 进行验证](#使用-urlcredential-进行验证)
+        - [手动验证](#手动验证-1)
+      - [下载数据到文件中](#下载数据到文件中)
+        - [下载文件的存放位置](#下载文件的存放位置)
+        - [下载进度](#下载进度)
+        - [取消和恢复下载](#取消和恢复下载)
+      - [上传数据到服务器](#上传数据到服务器)
+        - [上传 Data](#上传-data)
+        - [上传文件](#上传文件)
+        - [上传多表单数据](#上传多表单数据)
+        - [上传进度](#上传进度)
+      - [统计指标](#统计指标)
+        - [`URLSessionTaskMetrics`](#urlsessiontaskmetrics)
+      - [cURL 的命令输出](#curl-的命令输出)
+
 # Alamofire 5 的使用 - 基本用法
 
 我分两篇文章介绍如何使用 Alamofire 5。文章的内容主要是翻译[Alamofire](https://github.com/Alamofire/Alamofire)的 readme。[第二篇文章 >>]()
@@ -434,7 +490,7 @@ AF.request("https://httpbin.org/get")
     }
 ```
 
-### 相应处理
+### 响应处理
 
 Alamofire 的 `DataRequest` 和 `DownloadRequest` 都有相应的响应类型：`DataResponse<Success, Failure: Error>` 和 `DownloadResponse<Success, Failure: Error>`。这两个类型都由两个泛型组成：序列化类型和错误类型。默认情况下，所有响应值都将生成 `AFError` 错误类型（`DataResponse<Success, AFError>`）。Alamofire 在其公共 API 中使用了更简单的 `AFDataResponse<Success>` 和 `AFDownloadResponse<Success>`，它们总是有 `AFError` 错误类型。`UploadRequest` 是 `DataRequest` 的一个子类，使用相同的 `DataResponse` 类型。
 
@@ -608,7 +664,7 @@ AF.request("https://httpbin.org/get").responseJSON(queue: utilityQueue) { respon
 - [Kerberos](https://en.wikipedia.org/wiki/Kerberos_%28protocol%29)
 - [NTLM](https://en.wikipedia.org/wiki/NT_LAN_Manager)
 
-#### #### HTTP Basic 身份验证
+#### HTTP Basic 身份验证
 
 `Request` 的 `authenticate` 方法将在使用 `URLAuthenticationChallenge` 进行质询时自动提供 `URLCredential`（如果适用）：
 
