@@ -65,7 +65,7 @@
 
 # Alamofire 5 的使用 - 高级用法
 
-这篇文章介绍的是 Alamofire 框架的高级用法，如果之前没有看过基本用法的，可以先去看看 [Alamofire 5 的使用 - 基本用法](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95.md)
+这篇文章介绍的是 Alamofire 框架的高级用法，如果之前没有看过基本用法的，可以先去看看 [Alamofire 5 的使用 - 基本用法](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/02%20-%20Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95.md)
 
 Alamofire 是建立在 `URLSession` 和 URL 加载系统之上的。为了充分利用这个框架，建议您熟悉底层网络的概念和功能。
 
