@@ -56,7 +56,7 @@
 
 # Alamofire 5 的使用 - 基本用法
 
-我分两篇文章介绍如何使用 Alamofire 5。文章的内容主要是翻译 [Alamofire](https://github.com/Alamofire/Alamofire) 的 readme。[第二篇文章 >>]()
+我分两篇文章介绍如何使用 Alamofire 5。文章的内容主要是翻译 [Alamofire](https://github.com/Alamofire/Alamofire) 的 readme。[第二篇文章 >>](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/03%20-%20Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.md)
 
 ## 特性
 
@@ -152,7 +152,7 @@ open func request(
 ) -> DataRequest
 ```
 
-此方法为遵循 `Alamofire` 的 `URLRequestConvertible` 协议的任何类型创建 `DataRequest` 。所有不同于前一版本的参数都封装在该值中，这会产生非常强大的抽象。这将在我们的[高级用法]()中讨论。
+此方法为遵循 `Alamofire` 的 `URLRequestConvertible` 协议的任何类型创建 `DataRequest` 。所有不同于前一版本的参数都封装在该值中，这会产生非常强大的抽象。这将在我们的[高级用法](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/03%20-%20Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.md)中讨论。
 
 ### HTTP Methods
 
@@ -556,7 +556,7 @@ func responseDecodable<T: Decodable>(
 
 没有一个响应 handlers 对从服务器返回的 `HTTPURLResponse` 执行任何验证。
 
-> 例如，`400..<500` 和 `500..<600` 范围内的响应状态代码不会自动触发错误。Alamofire 使用[响应验证]()链接来实现这一点。
+> 例如，`400..<500` 和 `500..<600` 范围内的响应状态代码不会自动触发错误。Alamofire 使用[响应验证](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/02%20-%20Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95.md#%E5%93%8D%E5%BA%94%E9%AA%8C%E8%AF%81)链接来实现这一点。
 
 #### 响应 Handler
 
@@ -649,7 +649,7 @@ AF.request("https://httpbin.org/get").responseJSON(queue: utilityQueue) { respon
 
 响应缓存使用系统自带的 `URLCache` 处理。它提供了内存和磁盘上的复合缓存，并允许您管理用于缓存的内存和磁盘的大小。
 
-> 默认情况下，Alamofire 利用 `URLCache.shared` 实例。要自定义使用的`URLCache` 实例，请查看[高级用法]()。
+> 默认情况下，Alamofire 利用 `URLCache.shared` 实例。要自定义使用的`URLCache` 实例，请查看[高级用法](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/03%20-%20Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.md#cachedresponsehandler)。
 
 ### 身份验证
 
@@ -712,7 +712,7 @@ AF.request("https://httpbin.org/basic-auth/user/password", headers: headers)
     }
 ```
 
-但是，必须是所有请求的一部分的 headers，通常作为自定义 `URLSessionConfiguration` 的一部分或通过使用 `RequestAdapter` 来更好地处理。具体请查看[高级用法]()。
+但是，必须是所有请求的一部分的 headers，通常作为自定义 `URLSessionConfiguration` 的一部分或通过使用 `RequestAdapter` 来更好地处理。
 
 ### 下载数据到文件中
 

@@ -164,7 +164,7 @@ let session = Session(
 
 ### 添加 `RequestInterceptor`
 
-Alamofire 的 `RequestInterceptor` 协议（`RequestAdapter & RequestRetrier`）提供了重要而强大的请求自适应和重试功能。它可以在 `Session` 和 `Request` 层级使用。有关 `RequestInterceptor` 和 Alamofire 包含的各种实现（如 `RetryPolicy`）的更多详细信息，请参见[下文]()。
+Alamofire 的 `RequestInterceptor` 协议（`RequestAdapter & RequestRetrier`）提供了重要而强大的请求自适应和重试功能。它可以在 `Session` 和 `Request` 层级使用。有关 `RequestInterceptor` 和 Alamofire 包含的各种实现（如 `RetryPolicy`）的更多详细信息，请参见[下文](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/03%20-%20Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.md#%E4%BD%BF%E7%94%A8-requestinterceptor-%E8%B0%83%E6%95%B4%E5%92%8C%E9%87%8D%E8%AF%95%E8%AF%B7%E6%B1%82)。
 
 ```swift
 let policy = RetryPolicy()
@@ -180,11 +180,11 @@ let manager = ServerTrustManager(evaluators: ["httpbin.org": PinnedCertificatesT
 let session = Session(serverTrustManager: manager)
 ```
 
-有关评估服务器信任的详细信息，请参阅[下面]()的详细文档。
+有关评估服务器信任的详细信息，请参阅[下面](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/03%20-%20Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.md#%E4%BD%BF%E7%94%A8-servertrustmanager-%E5%92%8C-servertrustevaluating-%E8%AF%84%E4%BC%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BF%A1%E4%BB%BB)的详细文档。
 
 ### 添加 `RedirectHandler`
 
-Alamofire 的 `RedirectHandler` 协议定制了 HTTP 重定向响应的处理。它可以在 `Session` 和 `Request` 层级使用。Alamofire 包含了遵循 `RedirectHandler` 协议的 `Redirector` 类型，并提供对重定向的简单控制。有关重定向处理程序的详细信息，请参阅[下面]()的详细文档。
+Alamofire 的 `RedirectHandler` 协议定制了 HTTP 重定向响应的处理。它可以在 `Session` 和 `Request` 层级使用。Alamofire 包含了遵循 `RedirectHandler` 协议的 `Redirector` 类型，并提供对重定向的简单控制。有关重定向处理程序的详细信息，请参阅[下面](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/03%20-%20Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.md#redirecthandler)的详细文档。
 
 ```swift
 let redirector = Redirector(behavior: .follow)
@@ -193,7 +193,7 @@ let session = Session(redirectHandler: redirector)
 
 ### 添加 `CachedResponseHandler`
 
-Alamofire 的 `CachedResponseHandler` 协议定制了响应的缓存，可以在 `Session` 和 `Request` 层级使用。Alamofire 包含 `ResponseCacher` 类型，它遵循 `CachedResponseHandler` 协议并提供对响应缓存的简单控制。有关详细信息，请参阅[下面]()的详细文档。
+Alamofire 的 `CachedResponseHandler` 协议定制了响应的缓存，可以在 `Session` 和 `Request` 层级使用。Alamofire 包含 `ResponseCacher` 类型，它遵循 `CachedResponseHandler` 协议并提供对响应缓存的简单控制。有关详细信息，请参阅[下面](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/03%20-%20Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.md#cachedresponsehandler)的详细文档。
 
 ```swift
 let cacher = ResponseCacher(behavior: .cache)
@@ -484,7 +484,7 @@ func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping
 
 ### `RequestRetrier`
 
-Alamofire 的 `RequestRetrier` 协议允许重试在执行时遇到错误的请求。这包括在 Alamofire 的[请求管道]()的任何阶段产生的错误。
+Alamofire 的 `RequestRetrier` 协议允许重试在执行时遇到错误的请求。这包括在 Alamofire 的[请求管道](https://github.com/Lebron1992/learning-notes/blob/master/docs/alamofire5/03%20-%20Alamofire%205%20%E7%9A%84%E4%BD%BF%E7%94%A8%20-%20%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95.md#%E8%AF%B7%E6%B1%82%E7%AE%A1%E9%81%93)的任何阶段产生的错误。
 
 `RequestRetrier` 协议只有一个方法：
 
