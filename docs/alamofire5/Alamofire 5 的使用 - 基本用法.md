@@ -56,7 +56,7 @@
 
 # Alamofire 5 的使用 - 基本用法
 
-我分两篇文章介绍如何使用 Alamofire 5。文章的内容主要是翻译[Alamofire](https://github.com/Alamofire/Alamofire)的 readme。[第二篇文章 >>]()
+我分两篇文章介绍如何使用 Alamofire 5。文章的内容主要是翻译 [Alamofire](https://github.com/Alamofire/Alamofire) 的 readme。[第二篇文章 >>]()
 
 ## 特性
 
