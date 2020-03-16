@@ -1,3 +1,5 @@
+> 本文是阅读 [Combine: Asynchronous Programming with Swift](https://store.raywenderlich.com/products/combine-asynchronous-programming-with-swift) 后的学习笔记，有需要的请点击链接购买。
+
 # 01 - Combine 基础
 
 在 Combine 框架面世之前，我们通常会使用以下几种方式来处理异步问题：

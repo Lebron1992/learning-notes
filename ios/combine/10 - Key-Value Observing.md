@@ -1,3 +1,5 @@
+> 本文是阅读 [Combine: Asynchronous Programming with Swift](https://store.raywenderlich.com/products/combine-asynchronous-programming-with-swift) 后的学习笔记，有需要的请点击链接购买。
+
 # 10 - Key-Value Observing
 
 前面已经学习了 `assign(to:on:)`，它使我们能够在每次 publisher 发出新值时更新给定对象的属性值。

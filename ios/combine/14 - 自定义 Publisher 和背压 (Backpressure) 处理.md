@@ -1,3 +1,5 @@
+> 本文是阅读 [Combine: Asynchronous Programming with Swift](https://store.raywenderlich.com/products/combine-asynchronous-programming-with-swift) 后的学习笔记，有需要的请点击链接购买。
+
 # 自定义 Publisher 和背压 (Backpressure) 处理
 
 ## 自定义 Publisher

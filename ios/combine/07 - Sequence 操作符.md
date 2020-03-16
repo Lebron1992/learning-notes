@@ -1,3 +1,5 @@
+> 本文是阅读 [Combine: Asynchronous Programming with Swift](https://store.raywenderlich.com/products/combine-asynchronous-programming-with-swift) 后的学习笔记，有需要的请点击链接购买。
+
 # 07 - Sequence 操作符
 
 这里所记录的操作符跟 Swift 标准库中的几乎一样，可以直接类比过来理解。
