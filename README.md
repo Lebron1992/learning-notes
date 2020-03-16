@@ -2,7 +2,7 @@
 
 ## 目录
 
-- **[data-structure-and-algorithm](https://github.com/Lebron1992/learning-notes/tree/master/data-structure-and-algorithm)**: [Data Structures & Algorithms in Swift](https://store.raywenderlich.com/products/data-structures-and-algorithms-in-swift) 的学习笔记
+- **[data-structure-and-algorithm](/data-structure-and-algorithm)**: [Data Structures & Algorithms in Swift](https://store.raywenderlich.com/products/data-structures-and-algorithms-in-swift) 的学习笔记
 - **[design-pattern](https://github.com/Lebron1992/learning-notes/tree/master/design-pattern)**: [Design Patterns by Tutorials](https://store.raywenderlich.com/products/design-patterns-by-tutorials) 的学习笔记
 - **doc**
   - **[alamofire5](https://github.com/Lebron1992/learning-notes/tree/master/docs/alamofire5)**: Alamofire 5 的相关文档，翻译至 [Alamofire](https://github.com/Alamofire/Alamofire) 的 readme
