@@ -2,6 +2,7 @@
 
 ## 目录
 
+- **[c++](/c++)**: C++ 学习笔记
 - **[data-structure-and-algorithm](/data-structure-and-algorithm)**: [Data Structures & Algorithms in Swift](https://store.raywenderlich.com/products/data-structures-and-algorithms-in-swift) 的学习笔记
 - **[design-pattern](/design-pattern)**: [Design Patterns by Tutorials](https://store.raywenderlich.com/products/design-patterns-by-tutorials) 的学习笔记
 - **doc**
@@ -19,7 +20,8 @@
   - **[alamofire4](/source-code-analysis/alamofire4)**: Alamofire 4 的源码分析
   - **[kickstarter-ios](/source-code-analysis/kickstarter-ios)**: [kickstarter-ios](https://github.com/kickstarter/ios-oss) 的源码分析
 - **swift**
+  - **[modern-swift-concurrency](/swift/modern-swift-concurrency)**: [Modern Concurrency in Swift](https://www.raywenderlich.com/books/modern-concurrency-in-swift) 的学习笔记
   - **[pro-swift](/swift/pro-swift)**: [Pro Swift](https://gumroad.com/l/proswift) 的学习笔记
   - **[swift-language-guide](/swift/swift-language-guide)**: [Swift 官方文档](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html) 的学习笔记
   - **[swift-new-features](/swift/swift-new-features)**: Swift 新特性总结
-  - **[typescript](/typescript)**:  [Understanding TypeScript - 2020 Edition](https://www.udemy.com/course/understanding-typescript/) 的学习笔记
+- **[typescript](/typescript)**:  [Understanding TypeScript - 2020 Edition](https://www.udemy.com/course/understanding-typescript/) 的学习笔记
