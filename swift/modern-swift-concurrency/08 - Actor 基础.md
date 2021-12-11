@@ -108,3 +108,13 @@ mutating func addTask(
 因此，代码中的最佳实践是要求异步运行的任何闭包都是 `@Sendable`，并且异步代码中使用的任何值都遵循 `Sendable` 协议。
 
 另外，如果 struct 或者 class 是线程安全的，那么还应该遵循 `Sendable` 协议，以便其他并发代码可以安全地使用它。
+
+## 把安全的方法标记为 `nonisolated`
+
+当 actor 的方法实际上并不直接修改于它自己的共享状态时，那么这些方法就不需要 actor 的特殊作用。我们可以把这些方法看做是安全的，可以通过使用 `nonisolated` 关键字标记它们来帮助运行时并移除它们的安全检查：
+
+```swift
+nonisolated func loadImages() async throws
+```
+
+使用 `nonisolated` 关键字标记后，这些方法就好像它们是普通类方法而不是 actor 方法一样。这可以提升一点性能。
