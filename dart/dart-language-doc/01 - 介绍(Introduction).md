@@ -10,7 +10,7 @@ void main() {
 }
 ```
 
-## Variables
+## 变量（Variables）
 
 即使在类型安全的 Dart 代码中，可以使用 `var` 而无需显式地指定其类型来声明大多数变量。由于类型推断，这些变量的类型由其初始值决定：
 
@@ -25,7 +25,7 @@ var image = {
 };
 ```
 
-## Control flow statements
+## 控制流语句（Control flow statements）
 
 Dart 支持常见的控制流语句：
 
@@ -49,7 +49,7 @@ while (year < 2016) {
 }
 ```
 
-## Functions
+## 函数（Functions）
 
 建议指定每个函数的参数和返回值的类型：
 
@@ -70,7 +70,7 @@ flybyObjects.where((name) => name.contains('turn')).forEach(print);
 
 除了显示一个匿名函数 `where()` 外，这段代码还显示了可以使用一个函数作为参数：`print()` 函数是 `forEach()` 的一个参数。
 
-## Comments
+## 注释（Comments）
 
 Dart 注释通常以 `//` 开头。
 
@@ -83,7 +83,7 @@ Dart 注释通常以 `//` 开头。
 /* 这种注释也支持。*/
 ```
 
-## Imports
+## 导入（Imports）
 
 要访问在其他库中定义的 API，请使用 `import`。
 
@@ -98,7 +98,7 @@ import 'package:test/test.dart';
 import 'path/to/my_other_file.dart';
 ```
 
-## Classes
+## 类（Classes）
 
 下面是一个具有三个属性、两个构造函数和一个方法的类的示例。其中一个属性不能直接设置，所以它是使用 `getter` 方法（而不是变量）定义的。
 
@@ -142,7 +142,7 @@ var voyager3 = Spacecraft.unlaunched('Voyager III');
 voyager3.describe();
 ```
 
-## Enums
+## 枚举（Enums）
 
 枚举是一种枚举预定义的值或实例集的方式，可以确保不存在该类型的任何其他实例。
 以下是一个简单枚举的示例，它定义了预定义行星类型的简单列表：
@@ -182,7 +182,7 @@ if (!yourPlanet.isGiant) {
 }
 ```
 
-## Inheritance
+## 继承（Inheritance）
 
 Dart 支持单继承：
 
@@ -218,7 +218,7 @@ class PilotedCraft extends Spacecraft with Piloted {
 
 `PilotedCraft` 现在就拥有了 `astronauts` 属性及 `describeCrew()` 函数。
 
-## Interfaces and abstract classes
+## 接口和抽象类（Interfaces and abstract classes）
 
 所有 classes 都隐式定义了一个 interface。因此，你可以实现任何类。
 
@@ -244,7 +244,7 @@ abstract class Describable {
 
 任何扩展 `Describeable` 的类都有 `describeWithEmphasis()` 方法，该方法调用扩展类对 `describe()` 的实现。
 
-## Async
+## 异步（Async）
 
 通过使用 `async` 和 `await`，可以避免 callback 嵌套，并使代码可读性更强。
 
@@ -299,7 +299,7 @@ Stream<String> report(Spacecraft craft, Iterable<String> objects) async* {
 }
 ```
 
-## Exceptions
+## 异常（Exceptions）
 
 使用 `throw` 引发异常。
 
@@ -342,7 +342,7 @@ Future<void> describeFlybyObjects(List<String> flybyObjects) async {
 
 - Dart 支持顶级函数（如 `main()`），以及绑定到类或对象的函数（分别是静态方法和实例方法）。也可以在函数（嵌套函数或本地函数）中创建函数。
 
-- Dart 支持顶级变量，以及绑定到类或对象的变量（静态变量和实例变量）。实例变量有时被称为字段或属性。
+- Dart 支持顶层变量，以及绑定到类或对象的变量（静态变量和实例变量）。实例变量有时被称为字段或属性。
 
 - 与 Java 不同，Dart 没有关键字 `public`、`protected` 和 `private`。如果标识符以下划线（`_`）开头，则它是其库的私有标识符。
 
