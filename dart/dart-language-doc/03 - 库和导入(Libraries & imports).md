@@ -45,7 +45,7 @@ import 'package:lib1/lib1.dart' show foo;
 import 'package:lib2/lib2.dart' hide foo;
 ```
 
-## 延迟加载库
+## 延迟加载库（Lazily loading a library）
 
 延迟加载允许 web 应用程序在需要库时按需加载库。以下是一些可能使用延迟加载的情况：
 
@@ -75,6 +75,7 @@ Future<void> greet() async {
 可以多次调用 `loadLibrary()`，但库只加载一次。
 
 使用延迟加载时，请记住以下几点：
+
 - 延迟库的常量不是导入文件中的常量。在加载延迟库之前，这些常量是不存在的。
 - 不能在导入文件中使用延迟库中的类型。可以考虑将接口类型移动到由延迟库和导入文件导入的库中。
 - Dart 将 `loadLibrary()` 隐式插入到使用 `deferred as namespace` 定义的命名空间中。`loadLibrary()` 函数返回一个 `Future`。
@@ -87,26 +88,3 @@ Future<void> greet() async {
 @TestOn('browser')
 library;
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
